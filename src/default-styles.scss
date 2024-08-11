@@ -1,0 +1,169 @@
+// В этом файле желательно избегать глубокой вложенности, чтобы не присваивать свойствам высокий приоритет
+
+:root {
+  --body-bg-hue: 0;
+  --body-bg-saturation: 0%;
+  --body-bg-lightness: 70%;
+  --body-hue: 0;
+  --body-saturation: 0%;
+  --body-lightness: 50%;
+  --gap: 1rem;
+  --padding: 1rem;
+  --margin: 1rem;
+  --button-heihgt: 2.25rem;
+
+  --body-bg-color: hsl(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    var(--body-bg-lightness)
+  );
+
+  --body-color: hsl(
+    var(--body-hue),
+    var(--body-saturation),
+    var(--body-lightness)
+  );
+
+  --base-bg-color: hsla(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) + 10%),
+    1
+  );
+
+  --button-bg-color: hsla(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) + 20%),
+    1
+  );
+
+  --active-bg-color: hsla(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) - 10%),
+    1
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--body-bg-color);
+  color: var(--body-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--base-bg-color);
+  padding: var(--padding);
+
+  .buttons-group {
+    margin-left: var(--margin);
+  }
+}
+
+.main {
+  width: 100%;
+  display: flex;
+}
+
+.sidebar-container {
+  min-width: 25%;
+  padding: var(--margin);
+
+  & > .buttons-group {
+    justify-content: end;
+    margin-bottom: var(--margin);
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--base-bg-color);
+  padding: var(--padding);
+
+  .buttons-group {
+    margin-left: var(--margin);
+  }
+
+  .button {
+    width: var(--button-heihgt);
+  }
+}
+
+.card-list-container {
+  padding: var(--margin);
+
+  & > .buttons-group {
+    margin-bottom: var(--margin);
+  }
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: var(--gap);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--base-bg-color);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+
+  .buttons-group {
+    margin-left: var(--margin);
+  }
+
+  .button {
+    width: var(--button-heihgt);
+  }
+}
+
+.card-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  padding: var(--padding);
+}
+
+.item-property-name {
+  margin-bottom: var(--margin);
+}
+
+.active {
+  background-color: var(--active-bg-color);
+}
+
+.buttons-group {
+  display: flex;
+  gap: var(--gap);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--padding);
+  background-color: var(--button-bg-color);
+  height: var(--button-heihgt);
+}

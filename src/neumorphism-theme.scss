@@ -1,0 +1,160 @@
+[data-theme="neumorphism"] {
+  --body-bg-hue: 220;
+  --body-bg-saturation: 29%;
+  --body-bg-lightness: 92%;
+  --body-hue: 208;
+  --body-saturation: 7%;
+  --body-lightness: 46%;
+  --level-lightness-offset: 5%;
+  --accent-bg-hue: 239;
+  --accent-bg-saturation: 75%;
+  --accent-bg-lightness: 70%;
+  --accent-bg-opacity: 1;
+  --border-radius: 1.125rem;
+  --shadow-size: 0.25rem;
+  --shadow-blur: 0.25rem;
+  --shadow-spread: 0rem;
+  --shadow-opacity: 0.2;
+  --light-opacity: 0.75;
+
+  --base-bg-color: hsl(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) + var(--level-lightness-offset))
+  );
+
+  --active-bg-color: hsl(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) - var(--level-lightness-offset))
+  );
+
+  --accent-bg-color: hsla(
+    var(--accent-bg-hue),
+    var(--accent-bg-saturation),
+    var(--accent-bg-lightness),
+    var(--accent-bg-opacity)
+  );
+
+  --accent-color: hsl(0, 0%, 100%);
+
+  --upper-level-bg-color: hsl(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) + var(--level-lightness-offset))
+  );
+
+  --lower-level-bg-color: hsl(
+    var(--body-bg-hue),
+    var(--body-bg-saturation),
+    calc(var(--body-bg-lightness) - var(--level-lightness-offset))
+  );
+
+  --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)
+    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity));
+  --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)
+    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity));
+  --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))
+    var(--shadow-blur) var(--shadow-spread)
+    hsla(0, 0%, 100%, var(--light-opacity));
+  --inner-light: inset calc(-1 * var(--shadow-size))
+    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)
+    hsla(0, 0%, 100%, var(--light-opacity));
+  --extruded-shadow: var(--outer-light), var(--outer-shadow);
+  --intruded-shadow: var(--inner-shadow), var(--inner-light);
+
+  .header {
+    background-color: var(--accent-bg-color);
+    color: var(--accent-color);
+
+    .button {
+      background-color: var(--upper-level-bg-color);
+      color: var(--body-color);
+    }
+  }
+
+  .button {
+    border-radius: var(--border-radius);
+    box-shadow: var(--extruded-shadow);
+  }
+
+  .sidebar-container {
+    & > .buttons-group {
+      .button {
+        background-color: var(--base-bg-color);
+      }
+    }
+
+    .sidebar {
+      gap: 0;
+      background-color: var(--base-bg-color);
+      border-radius: var(--border-radius);
+      box-shadow: var(--extruded-shadow);
+
+      .sidebar-item {
+        background-color: transparent;
+
+        &.active {
+          background-color: var(--body-bg-color);
+          margin: var(--margin) var(--margin) 0;
+          border-radius: var(--border-radius);
+          box-shadow: var(--intruded-shadow);
+
+          .button {
+            background-color: var(--base-bg-color);
+          }
+        }
+
+        &:not(.active) {
+          background-color: none;
+
+          .buttons-group {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .card-list-container {
+    & > .buttons-group {
+      .button {
+        background-color: var(--base-bg-color);
+      }
+    }
+
+    .card-list {
+      .card {
+        border-radius: var(--border-radius);
+
+        .item-property-name {
+          margin-bottom: calc(var(--margin) * 0.5);
+        }
+
+        .card-header {
+          padding-bottom: calc(var(--padding) * 0.5);
+        }
+
+        .card-body {
+          padding-top: calc(var(--padding) * 0.5);
+        }
+
+        &.active {
+          box-shadow: var(--intruded-shadow);
+
+          .button {
+            background-color: var(--body-bg-color);
+          }
+        }
+
+        &:not(.active) {
+          box-shadow: var(--extruded-shadow);
+
+          .buttons-group {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
