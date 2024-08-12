@@ -1,22 +1,71 @@
 import "./App.css";
 
 function App() {
+  function changeTheme(theme) {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    console.log(document.documentElement.style);
+  }
+
+  function changeVar(customVar, increaseValue) {
+    const value = getComputedStyle(document.documentElement).getPropertyValue(
+      customVar
+    );
+    document.documentElement.style.setProperty(
+      customVar,
+      +value + increaseValue
+    );
+    console.log(document.styleSheets);
+  }
+
   return (
     <div className="app">
       <div class="header">
         <div class="header-text">Header</div>
         <div class="buttons-group">
-          <div class="button">A</div>
-          <div class="button">B</div>
-          <div class="button">C</div>
+          <div class="button" onClick={() => changeTheme()}>
+            Default
+          </div>
+          <div class="button" onClick={() => changeTheme("neumorphism")}>
+            Neumorphism
+          </div>
+          <div class="button" onClick={() => changeTheme("glassmorphism")}>
+            Glassmorphism
+          </div>
+          <div class="button" onClick={() => changeTheme("claymorphisn")}>
+            Claymorphisn
+          </div>
+          <div class="button" onClick={() => changeTheme("retrofuturism")}>
+            Retrofuturism
+          </div>
+          <div class="button" onClick={() => changeTheme("hi-tech")}>
+            Hi-tech
+          </div>
         </div>
       </div>
       <div class="main">
         <div class="sidebar-container">
           <div class="buttons-group">
-            <div class="button">Button 1</div>
+            <div
+              class="button"
+              onClick={() => {
+                changeVar("--body-bg-hue", -10);
+              }}
+            >
+              Button 1
+            </div>
             <div class="button">Button 2</div>
-            <div class="button">Button 3</div>
+            <div
+              class="button"
+              onClick={() => {
+                changeVar("--body-bg-hue", 10);
+              }}
+            >
+              Button 3
+            </div>
           </div>
           <div class="sidebar">
             <div class="sidebar-item active">
