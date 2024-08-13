@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 
 function App() {
   function changeTheme(theme) {
@@ -36,7 +36,7 @@ function App() {
             Glassmorphism
           </div>
           <div class="button" onClick={() => changeTheme("claymorphisn")}>
-            Claymorphisn
+            Claymorphism
           </div>
           <div class="button" onClick={() => changeTheme("retrofuturism")}>
             Retrofuturism
@@ -71,33 +71,57 @@ function App() {
             <div class="sidebar-item active">
               <div class="sidebar-item-text">Sidebar-item-01</div>
               <div class="buttons-group">
-                <div class="button">A</div>
-                <div class="button">B</div>
-                <div class="button">C</div>
+                <div class="button">
+                  <span class="icon">content_copy</span>
+                </div>
+                <div class="button">
+                  <span class="icon">edit</span>
+                </div>
+                <div class="button">
+                  <span class="icon">delete</span>
+                </div>
               </div>
             </div>
             <div class="sidebar-item">
               <div class="sidebar-item-text">Sidebar-item-02</div>
               <div class="buttons-group">
-                <div class="button">A</div>
-                <div class="button">B</div>
-                <div class="button">C</div>
+                <div class="button">
+                  <span class="icon">content_copy</span>
+                </div>
+                <div class="button">
+                  <span class="icon">edit</span>
+                </div>
+                <div class="button">
+                  <span class="icon">delete</span>
+                </div>
               </div>
             </div>
             <div class="sidebar-item">
               <div class="sidebar-item-text">Sidebar-item-03</div>
               <div class="buttons-group">
-                <div class="button">A</div>
-                <div class="button">B</div>
-                <div class="button">C</div>
+                <div class="button">
+                  <span class="icon">content_copy</span>
+                </div>
+                <div class="button">
+                  <span class="icon">edit</span>
+                </div>
+                <div class="button">
+                  <span class="icon">delete</span>
+                </div>
               </div>
             </div>
             <div class="sidebar-item">
               <div class="sidebar-item-text">Sidebar-item-04</div>
               <div class="buttons-group">
-                <div class="button">A</div>
-                <div class="button">B</div>
-                <div class="button">C</div>
+                <div class="button">
+                  <span class="icon">content_copy</span>
+                </div>
+                <div class="button">
+                  <span class="icon">edit</span>
+                </div>
+                <div class="button">
+                  <span class="icon">delete</span>
+                </div>
               </div>
             </div>
           </div>
@@ -116,9 +140,15 @@ function App() {
                   <div class="item-property-value">Subheader-1</div>
                 </div>
                 <div class="buttons-group">
-                  <div class="button">A</div>
-                  <div class="button">B</div>
-                  <div class="button">C</div>
+                  <div class="button">
+                    <span class="icon">content_copy</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">edit</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">delete</span>
+                  </div>
                 </div>
               </div>
               <div class="card-body">
@@ -147,9 +177,15 @@ function App() {
                   <div class="item-property-value">Subheader-1</div>
                 </div>
                 <div class="buttons-group">
-                  <div class="button">A</div>
-                  <div class="button">B</div>
-                  <div class="button">C</div>
+                  <div class="button">
+                    <span class="icon">content_copy</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">edit</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">delete</span>
+                  </div>
                 </div>
               </div>
               <div class="card-body">
@@ -178,9 +214,15 @@ function App() {
                   <div class="item-property-value">Subheader-1</div>
                 </div>
                 <div class="buttons-group">
-                  <div class="button">A</div>
-                  <div class="button">B</div>
-                  <div class="button">C</div>
+                  <div class="button">
+                    <span class="icon">content_copy</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">edit</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">delete</span>
+                  </div>
                 </div>
               </div>
               <div class="card-body">
@@ -209,9 +251,15 @@ function App() {
                   <div class="item-property-value">Subheader-1</div>
                 </div>
                 <div class="buttons-group">
-                  <div class="button">A</div>
-                  <div class="button">B</div>
-                  <div class="button">C</div>
+                  <div class="button">
+                    <span class="icon">content_copy</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">edit</span>
+                  </div>
+                  <div class="button">
+                    <span class="icon">delete</span>
+                  </div>
                 </div>
               </div>
               <div class="card-body">

@@ -5,7 +5,7 @@
   --body-hue: 208;
   --body-saturation: 7%;
   --body-lightness: 46%;
-  --level-lightness-offset: 5%;
+  --level-lightness-offset: 3%;
   --accent-bg-hue: 239;
   --accent-bg-saturation: 75%;
   --accent-bg-lightness: 70%;
@@ -78,6 +78,10 @@
     box-shadow: var(--extruded-shadow);
   }
 
+  .icon {
+    font-size: 1.25rem;
+  }
+
   .sidebar-container {
     & > .buttons-group {
       .button {
@@ -128,7 +132,12 @@
         border-radius: var(--border-radius);
 
         .item-property-name {
+          font-size: 0.875rem;
           margin-bottom: calc(var(--margin) * 0.5);
+        }
+
+        .item-property-value {
+          font-weight: bold;
         }
 
         .card-header {

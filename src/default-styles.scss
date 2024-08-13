@@ -11,6 +11,7 @@
   --padding: 1rem;
   --margin: 1rem;
   --button-heihgt: 2.25rem;
+  --font-family: roboto;
 
   --body-bg-color: hsl(
     var(--body-bg-hue),
@@ -48,12 +49,14 @@
 
 * {
   box-sizing: border-box;
+  transition: all 0.3s;
 }
 
 body {
   margin: 0;
   background-color: var(--body-bg-color);
   color: var(--body-color);
+  font-family: var(--font-family);
 }
 
 .header {
@@ -166,4 +169,9 @@ body {
   padding: var(--padding);
   background-color: var(--button-bg-color);
   height: var(--button-heihgt);
+  cursor: pointer;
+}
+
+.icon {
+  font-family: material-icons;
 }
