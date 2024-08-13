@@ -21,6 +21,11 @@ function App() {
     console.log(document.styleSheets);
   }
 
+  function setValue(obj) {
+    console.log(obj);
+    console.log(document.styleSheets[2].cssRules);
+  }
+
   return (
     <div className="app">
       <div class="header">
@@ -283,6 +288,19 @@ function App() {
             </div>
           </div>
         </div>
+        <input
+          type="range"
+          min="0"
+          max="1.125"
+          step="0.125"
+          onChange={(e) => {
+            setValue({
+              selector: '[data-theme="neumorphism"]',
+              property: "borderRadius",
+              value: e.target.value + "rem",
+            });
+          }}
+        />
       </div>
     </div>
   );
