@@ -9,7 +9,7 @@
   --accent-bg-hue: 239;
   --accent-bg-saturation: 75%;
   --accent-bg-lightness: 70%;
-  --accent-bg-opacity: 1;
+
   --border-radius: 1.125rem;
   --shadow-size: 0.25rem;
   --shadow-blur: 0.25rem;
@@ -17,19 +17,13 @@
   --shadow-opacity: 0.2;
   --light-opacity: 0.75;
 
-  --base-bg-color: hsl(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) + var(--level-lightness-offset))
-  );
-
-  --active-bg-color: hsl(
+  --active-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) - var(--level-lightness-offset))
   );
 
-  --accent-bg-color: hsla(
+  --accent-bg: hsla(
     var(--accent-bg-hue),
     var(--accent-bg-saturation),
     var(--accent-bg-lightness),
@@ -38,16 +32,22 @@
 
   --accent-color: hsl(0, 0%, 100%);
 
-  --upper-level-bg-color: hsl(
+  --upper-level-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) + var(--level-lightness-offset))
   );
 
-  --lower-level-bg-color: hsl(
+  --lower-level-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) - var(--level-lightness-offset))
+  );
+
+  --muted-color: hsl(
+    var(--body-color-hue),
+    var(--body-color-saturation),
+    calc(var(--body-color-lightness) + var(--level-lightness-offset) * 5)
   );
 
   --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)
@@ -63,71 +63,61 @@
   --extruded-shadow: var(--outer-light), var(--outer-shadow);
   --intruded-shadow: var(--inner-shadow), var(--inner-light);
 
-  --muted-color: hsl(
-    var(--body-color-hue),
-    var(--body-color-saturation),
-    calc(var(--body-color-lightness) + var(--level-lightness-offset) * 5)
-  );
-
-  .header {
-    background-color: var(--accent-bg-color);
-    color: var(--accent-color);
-
-    .header-text {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .button {
-      background-color: var(--upper-level-bg-color);
-      color: var(--body-color);
-    }
+  .icon {
+    font-size: calc(var(--body-font-size) * 1.25);
   }
 
   .button {
-    padding: calc(var(--padding) * 0.375) calc(var(--padding) * 0.75);
     border-radius: var(--border-radius);
     box-shadow: var(--extruded-shadow);
   }
 
-  .icon {
-    font-size: 1.25rem;
+  .header {
+    background-color: var(--accent-bg);
+    color: var(--accent-color);
+
+    .header-text {
+      font-size: calc(var(--body-font-size) * 1.5);
+      font-weight: bold;
+    }
+
+    .button {
+      background-color: var(--upper-level-bg);
+      color: var(--body-color);
+    }
   }
 
   .sidebar-container {
     & > .buttons-group {
       .button {
-        background-color: var(--base-bg-color);
+        background-color: var(--upper-level-bg);
       }
     }
 
     .sidebar {
       gap: 0;
-      background-color: var(--base-bg-color);
+      background-color: var(--upper-level-bg);
       border-radius: var(--border-radius);
       box-shadow: var(--extruded-shadow);
 
       .sidebar-item {
-        background-color: transparent;
-
         &.active {
-          background-color: var(--body-bg-color);
+          background-color: var(--body-bg);
           margin: var(--margin) var(--margin) 0;
           border-radius: var(--border-radius);
           box-shadow: var(--intruded-shadow);
 
           .sidebar-item-text {
             font-weight: bold;
-            margin-top: calc(var(--padding) * 0.375);
           }
 
           .button {
-            background-color: var(--base-bg-color);
+            background-color: var(--upper-level-bg);
           }
         }
 
         &:not(.active) {
-          background-color: none;
+          background-color: transparent;
 
           .buttons-group {
             display: none;
@@ -140,7 +130,7 @@
   .card-list-container {
     & > .buttons-group {
       .button {
-        background-color: var(--base-bg-color);
+        background-color: var(--upper-level-bg);
       }
     }
 
@@ -149,7 +139,7 @@
         border-radius: var(--border-radius);
 
         .item-property-name {
-          font-size: 0.875rem;
+          font-size: calc(var(--body-font-size) * 0.875);
           color: var(--muted-color);
         }
 
@@ -169,11 +159,12 @@
           box-shadow: var(--intruded-shadow);
 
           .button {
-            background-color: var(--body-bg-color);
+            background-color: var(--body-bg);
           }
         }
 
         &:not(.active) {
+          background-color: var(--upper-level-bg);
           box-shadow: var(--extruded-shadow);
 
           .buttons-group {

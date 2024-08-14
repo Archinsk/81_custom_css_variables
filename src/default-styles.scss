@@ -19,6 +19,8 @@
   --button-padding-y: calc(
     (var(--button-height) - var(--body-font-size) * var(--body-line-height)) / 2
   );
+  --sidebar-width: 25%;
+
   --body-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
@@ -68,6 +70,25 @@ body {
   line-height: var(--body-line-height);
 }
 
+.icon {
+  font-family: material-icons;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);
+  background-color: var(--button-bg);
+  height: var(--button-height);
+  cursor: pointer;
+}
+
+.buttons-group {
+  display: flex;
+  gap: var(--gap);
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -86,7 +107,7 @@ body {
 }
 
 .sidebar-container {
-  min-width: 25%;
+  min-width: var(--sidebar-width);
   padding: var(--margin);
 
   & > .buttons-group {
@@ -102,17 +123,16 @@ body {
 }
 
 .sidebar-item {
-  display: flex;
-  justify-content: space-between;
   background-color: var(--base-bg);
   padding: var(--padding);
 
-  .sidebar-item-text {
-    margin-top: var(--button-padding-y);
+  .buttons-group {
+    float: right;
+    margin-left: var(--margin);
   }
 
-  .buttons-group {
-    margin-left: var(--margin);
+  .sidebar-item-text {
+    margin-top: var(--button-padding-y);
   }
 
   .button {
@@ -144,11 +164,10 @@ body {
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
   padding: var(--padding);
 
   .buttons-group {
+    float: right;
     margin-left: var(--margin);
   }
 
@@ -168,23 +187,4 @@ body {
 
 .active {
   background-color: var(--active-bg);
-}
-
-.buttons-group {
-  display: flex;
-  gap: var(--gap);
-}
-
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);
-  background-color: var(--button-bg);
-  height: var(--button-height);
-  cursor: pointer;
-}
-
-.icon {
-  font-family: material-icons;
 }

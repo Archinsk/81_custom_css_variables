@@ -85,7 +85,20 @@ function App() {
           </div>
           <div class="sidebar">
             <div class="sidebar-item active">
+              <div class="buttons-group">
+                <div class="button">
+                  <span class="icon">content_copy</span>
+                </div>
+                <div class="button">
+                  <span class="icon">edit</span>
+                </div>
+                <div class="button">
+                  <span class="icon">delete</span>
+                </div>
+              </div>
               <div class="sidebar-item-text">Sidebar-item-01</div>
+            </div>
+            <div class="sidebar-item">
               <div class="buttons-group">
                 <div class="button">
                   <span class="icon">content_copy</span>
@@ -97,9 +110,9 @@ function App() {
                   <span class="icon">delete</span>
                 </div>
               </div>
-            </div>
-            <div class="sidebar-item">
               <div class="sidebar-item-text">Sidebar-item-02</div>
+            </div>
+            <div class="sidebar-item">
               <div class="buttons-group">
                 <div class="button">
                   <span class="icon">content_copy</span>
@@ -111,23 +124,9 @@ function App() {
                   <span class="icon">delete</span>
                 </div>
               </div>
-            </div>
-            <div class="sidebar-item">
               <div class="sidebar-item-text">Sidebar-item-03</div>
-              <div class="buttons-group">
-                <div class="button">
-                  <span class="icon">content_copy</span>
-                </div>
-                <div class="button">
-                  <span class="icon">edit</span>
-                </div>
-                <div class="button">
-                  <span class="icon">delete</span>
-                </div>
-              </div>
             </div>
             <div class="sidebar-item">
-              <div class="sidebar-item-text">Sidebar-item-04</div>
               <div class="buttons-group">
                 <div class="button">
                   <span class="icon">content_copy</span>
@@ -139,6 +138,7 @@ function App() {
                   <span class="icon">delete</span>
                 </div>
               </div>
+              <div class="sidebar-item-text">Sidebar-item-04</div>
             </div>
           </div>
         </div>
@@ -151,10 +151,6 @@ function App() {
           <div class="card-list">
             <div class="card active">
               <div class="card-header">
-                <div class="item-property">
-                  <div class="item-property-name">Header-1</div>
-                  <div class="item-property-value">Subheader-1</div>
-                </div>
                 <div class="buttons-group">
                   <div class="button">
                     <span class="icon">content_copy</span>
@@ -165,6 +161,10 @@ function App() {
                   <div class="button">
                     <span class="icon">delete</span>
                   </div>
+                </div>
+                <div class="item-property">
+                  <div class="item-property-name">Header-1</div>
+                  <div class="item-property-value">Subheader-1</div>
                 </div>
               </div>
               <div class="card-body">
