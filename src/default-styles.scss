@@ -4,42 +4,48 @@
   --body-bg-hue: 0;
   --body-bg-saturation: 0%;
   --body-bg-lightness: 70%;
-  --body-hue: 0;
-  --body-saturation: 0%;
-  --body-lightness: 50%;
+  --body-color-hue: 0;
+  --body-color-saturation: 0%;
+  --body-color-lightness: 50%;
+  --body-font-family: roboto;
+  --body-font-size: 1rem;
+  --body-font-weight: normal;
+  --body-line-height: 1.5;
+
   --gap: 1rem;
   --padding: 1rem;
   --margin: 1rem;
-  --button-heihgt: 2.25rem;
-  --font-family: roboto;
-
-  --body-bg-color: hsl(
+  --button-height: 2.25rem;
+  --button-padding-y: calc(
+    (var(--button-height) - var(--body-font-size) * var(--body-line-height)) / 2
+  );
+  --body-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     var(--body-bg-lightness)
   );
 
   --body-color: hsl(
-    var(--body-hue),
-    var(--body-saturation),
-    var(--body-lightness)
+    var(--body-color-hue),
+    var(--body-color-saturation),
+    var(--body-color-lightness)
   );
 
-  --base-bg-color: hsla(
+  --base-bg: hsla(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) + 10%),
     1
   );
 
-  --button-bg-color: hsla(
+  --button-bg: hsla(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) + 20%),
     1
   );
 
-  --active-bg-color: hsla(
+  --active-bg: hsla(
     var(--body-bg-hue),
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) - 10%),
@@ -49,21 +55,24 @@
 
 * {
   box-sizing: border-box;
-  transition: all 0.3s;
+  transition: all 0.15s;
 }
 
 body {
   margin: 0;
-  background-color: var(--body-bg-color);
+  background-color: var(--body-bg);
   color: var(--body-color);
-  font-family: var(--font-family);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--base-bg-color);
+  background-color: var(--base-bg);
   padding: var(--padding);
 
   .buttons-group {
@@ -95,15 +104,21 @@ body {
 .sidebar-item {
   display: flex;
   justify-content: space-between;
-  background-color: var(--base-bg-color);
+  background-color: var(--base-bg);
   padding: var(--padding);
+
+  .sidebar-item-text {
+    margin-top: var(--button-padding-y);
+  }
 
   .buttons-group {
     margin-left: var(--margin);
   }
 
   .button {
-    width: var(--button-heihgt);
+    width: var(--button-height);
+    padding-left: var(--button-padding-y);
+    padding-right: var(--button-padding-y);
   }
 }
 
@@ -125,7 +140,7 @@ body {
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--base-bg-color);
+  background-color: var(--base-bg);
 }
 
 .card-header {
@@ -138,7 +153,9 @@ body {
   }
 
   .button {
-    width: var(--button-heihgt);
+    width: var(--button-height);
+    padding-left: var(--button-padding-y);
+    padding-right: var(--button-padding-y);
   }
 }
 
@@ -149,12 +166,8 @@ body {
   padding: var(--padding);
 }
 
-.item-property-name {
-  margin-bottom: var(--margin);
-}
-
 .active {
-  background-color: var(--active-bg-color);
+  background-color: var(--active-bg);
 }
 
 .buttons-group {
@@ -166,9 +179,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--padding);
-  background-color: var(--button-bg-color);
-  height: var(--button-heihgt);
+  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);
+  background-color: var(--button-bg);
+  height: var(--button-height);
   cursor: pointer;
 }
 

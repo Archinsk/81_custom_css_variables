@@ -2,9 +2,9 @@
   --body-bg-hue: 220;
   --body-bg-saturation: 29%;
   --body-bg-lightness: 92%;
-  --body-hue: 208;
-  --body-saturation: 7%;
-  --body-lightness: 46%;
+  --body-color-hue: 208;
+  --body-color-saturation: 7%;
+  --body-color-lightness: 46%;
   --level-lightness-offset: 3%;
   --accent-bg-hue: 239;
   --accent-bg-saturation: 75%;
@@ -63,9 +63,20 @@
   --extruded-shadow: var(--outer-light), var(--outer-shadow);
   --intruded-shadow: var(--inner-shadow), var(--inner-light);
 
+  --muted-color: hsl(
+    var(--body-color-hue),
+    var(--body-color-saturation),
+    calc(var(--body-color-lightness) + var(--level-lightness-offset) * 5)
+  );
+
   .header {
     background-color: var(--accent-bg-color);
     color: var(--accent-color);
+
+    .header-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
 
     .button {
       background-color: var(--upper-level-bg-color);
@@ -74,6 +85,7 @@
   }
 
   .button {
+    padding: calc(var(--padding) * 0.375) calc(var(--padding) * 0.75);
     border-radius: var(--border-radius);
     box-shadow: var(--extruded-shadow);
   }
@@ -104,6 +116,11 @@
           border-radius: var(--border-radius);
           box-shadow: var(--intruded-shadow);
 
+          .sidebar-item-text {
+            font-weight: bold;
+            margin-top: calc(var(--padding) * 0.375);
+          }
+
           .button {
             background-color: var(--base-bg-color);
           }
@@ -133,7 +150,7 @@
 
         .item-property-name {
           font-size: 0.875rem;
-          margin-bottom: calc(var(--margin) * 0.5);
+          color: var(--muted-color);
         }
 
         .item-property-value {
