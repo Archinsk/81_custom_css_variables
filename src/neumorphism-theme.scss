@@ -24,15 +24,6 @@
     calc(var(--body-bg-lightness) - var(--level-lightness-offset))
   );
 
-  --accent-bg: hsla(
-    var(--accent-bg-hue),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness),
-    var(--accent-bg-opacity)
-  );
-
-  --accent-color: hsl(0, 0%, 100%);
-
   --upper-level-bg: hsl(
     var(--body-bg-hue),
     var(--body-bg-saturation),
@@ -64,24 +55,12 @@
   --extruded-shadow: var(--outer-light), var(--outer-shadow);
   --intruded-shadow: var(--inner-shadow), var(--inner-light);
 
-  .icon {
-    font-size: calc(var(--body-font-size) * 1.25);
-  }
-
   .button {
     border-radius: var(--border-radius);
     box-shadow: var(--extruded-shadow);
   }
 
   .header {
-    background-color: var(--accent-bg);
-    color: var(--accent-color);
-
-    .header-text {
-      font-size: calc(var(--body-font-size) * 1.5);
-      font-weight: bold;
-    }
-
     .button {
       background-color: var(--upper-level-bg);
       color: var(--body-color);
@@ -119,10 +98,6 @@
 
         &:not(.active) {
           background-color: transparent;
-
-          .buttons-group {
-            display: none;
-          }
         }
       }
     }
@@ -138,11 +113,6 @@
     .card-list {
       .card {
         border-radius: var(--border-radius);
-
-        .item-property-name {
-          font-size: calc(var(--body-font-size) * 0.875);
-          color: var(--muted-color);
-        }
 
         .item-property-value {
           font-weight: bold;
@@ -167,10 +137,6 @@
         &:not(.active) {
           background-color: var(--upper-level-bg);
           box-shadow: var(--extruded-shadow);
-
-          .buttons-group {
-            display: none;
-          }
         }
       }
     }

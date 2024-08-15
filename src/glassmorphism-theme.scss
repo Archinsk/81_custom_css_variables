@@ -28,13 +28,6 @@
 
   --border-radius: 1.125rem;
 
-  --accent-bg: hsla(
-    var(--accent-bg-hue),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness),
-    var(--accent-bg-opacity)
-  );
-
   --glass-bg: hsla(
     var(--glass-bg-hue),
     var(--glass-bg-saturation),
@@ -62,10 +55,6 @@
     calc(var(--body-color-lightness) - 10%)
   );
 
-  .icon {
-    font-size: calc(var(--body-font-size) * 1.25);
-  }
-
   .button {
     background-color: var(--body-color);
     color: var(--accent-bg);
@@ -73,13 +62,6 @@
   }
 
   .header {
-    background-color: var(--accent-bg);
-
-    .header-text {
-      font-size: calc(var(--body-font-size) * 1.5);
-      font-weight: bold;
-    }
-
     .button {
       background-color: var(--body-color);
       color: var(--accent-bg);
@@ -99,10 +81,6 @@
 
       &:not(.active) {
         background-color: transparent;
-
-        .buttons-group {
-          display: none;
-        }
       }
     }
   }
@@ -110,11 +88,6 @@
   .card-list {
     .card {
       border-radius: var(--border-radius);
-
-      .item-property-name {
-        font-size: calc(var(--body-font-size) * 0.875);
-        color: var(--muted-color);
-      }
 
       .card-header {
         .item-property-value {
@@ -128,10 +101,6 @@
 
       &:not(.active) {
         background-color: var(--glass-bg);
-
-        .buttons-group {
-          display: none;
-        }
       }
     }
   }

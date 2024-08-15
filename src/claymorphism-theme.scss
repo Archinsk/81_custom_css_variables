@@ -12,6 +12,10 @@
   --accent-bg-saturation: 59%;
   --accent-bg-lightness: 87%;
   --accent-bg-opacity: 1;
+  --accent-color-hue: 208;
+  --accent-color-saturation: 7%;
+  --accent-color-lightness: 46%;
+  --accent-color-opacity: 1;
   --button-bg-hue: 0;
   --button-bg-saturation: 0%;
   --button-bg-lightness: 97%;
@@ -34,13 +38,6 @@
     var(--base-bg-lightness)
   );
 
-  --accent-bg: hsla(
-    var(--accent-bg-hue),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness),
-    var(--accent-bg-opacity)
-  );
-
   --button-bg: hsla(
     var(--button-bg-hue),
     var(--button-bg-saturation),
@@ -61,23 +58,9 @@
     calc(var(--body-color-lightness) - 10%)
   ); */
 
-  .icon {
-    font-size: calc(var(--body-font-size) * 1.25);
-  }
-
   .button {
     border-radius: var(--border-radius);
     // box-shadow: var(--extruded-shadow);
-  }
-
-  .header {
-    background-color: var(--accent-bg);
-    color: var(--accent-color);
-
-    .header-text {
-      font-size: calc(var(--body-font-size) * 1.5);
-      font-weight: bold;
-    }
   }
 
   .sidebar-container {
@@ -111,10 +94,6 @@
 
         &:not(.active) {
           background-color: transparent;
-
-          .buttons-group {
-            display: none;
-          }
         }
       }
     }
@@ -130,11 +109,6 @@
     .card-list {
       .card {
         border-radius: var(--border-radius);
-
-        .item-property-name {
-          font-size: calc(var(--body-font-size) * 0.875);
-          color: var(--muted-color);
-        }
 
         .item-property-value {
           font-weight: bold;
@@ -161,10 +135,6 @@
 
         &:not(.active) {
           // box-shadow: var(--extruded-shadow);
-
-          .buttons-group {
-            display: none;
-          }
         }
       }
     }
