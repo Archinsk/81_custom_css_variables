@@ -30,6 +30,9 @@
   --muted-color-lightness: 89%;
   --muted-color-opacity: 1;*/
 
+  --padding: 1.5rem;
+  --margin: 1.5rem;
+
   --border-radius: 1.125rem;
 
   --base-bg: hsl(
@@ -59,19 +62,30 @@
   ); */
 
   .button {
-    border-radius: var(--border-radius);
     // box-shadow: var(--extruded-shadow);
+  }
+
+  .header {
+    margin: var(--margin) calc(var(--margin) * 2) 0;
+    padding: var(--padding);
+
+    .buttons-group {
+      gap: calc(var(--gap) * 1.5);
+    }
   }
 
   .sidebar-container {
     & > .buttons-group {
       .button {
+        gap: calc(var(--gap) * 1.5);
         // background-color: var(--upper-level-bg);
       }
     }
 
     .sidebar {
       gap: 0;
+      padding-top: var(--padding);
+      padding-bottom: var(--padding);
       background-color: var(--base-bg);
       border-radius: var(--border-radius);
       // box-shadow: var(--extruded-shadow);
@@ -83,7 +97,10 @@
 
         &.active {
           background-color: var(--accent-bg);
-          margin: var(--margin) var(--margin) 0;
+          margin-left: var(--margin);
+          margin-right: var(--margin);
+          padding-top: calc(var(--padding) * 2 / 3);
+          padding-bottom: calc(var(--padding) * 2 / 3);
           border-radius: var(--border-radius);
           // box-shadow: var(--intruded-shadow);
 
@@ -101,12 +118,16 @@
 
   .card-list-container {
     & > .buttons-group {
+      gap: calc(var(--gap) * 1.5);
+
       .button {
         // background-color: var(--upper-level-bg);
       }
     }
 
     .card-list {
+      row-gap: calc(var(--gap) * 1.5);
+
       .card {
         border-radius: var(--border-radius);
 
@@ -115,13 +136,17 @@
         }
 
         .card-header {
-          padding-bottom: calc(var(--padding) * 0.5);
+          margin: calc(var(--margin) * 2 / 3) calc(var(--margin) * 2 / 3) 0;
+          padding-top: calc(var(--padding) * 2 / 3);
+          padding-bottom: calc(var(--padding) * 2 / 3);
           background-color: var(--button-bg);
           border-radius: var(--border-radius);
         }
 
         .card-body {
-          padding-top: calc(var(--padding) * 0.5);
+          margin: calc(var(--margin) * 2 / 3);
+          padding-top: calc(var(--padding) * 2 / 3);
+          padding-bottom: calc(var(--padding) * 2 / 3);
         }
 
         &.active {

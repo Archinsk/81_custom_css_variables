@@ -3,7 +3,7 @@
 :root {
   --body-bg-hue: 0;
   --body-bg-saturation: 0%;
-  --body-bg-lightness: 70%;
+  --body-bg-lightness: 80%;
   --body-color-hue: 0;
   --body-color-saturation: 0%;
   --body-color-lightness: 50%;
@@ -15,6 +15,10 @@
   --accent-color-saturation: 0%;
   --accent-color-lightness: 100%;
   --accent-color-opacity: 1;
+  --muted-color-hue: var(--body-color-hue);
+  --muted-color-saturation: var(--body-color-saturation);
+  --muted-color-lightness: calc(var(--body-color-lightness) + 5%);
+  --muted-color-opacity: 1;
 
   --body-font-family: roboto;
   --body-font-size: 1rem;
@@ -24,10 +28,12 @@
   --gap: 1rem;
   --padding: 1rem;
   --margin: 1rem;
+
   --button-height: 2.25rem;
   --button-padding-y: calc(
     (var(--button-height) - var(--body-font-size) * var(--body-line-height)) / 2
   );
+  --border-radius: 0;
   --sidebar-width: 25%;
 
   --body-bg: hsl(
@@ -66,7 +72,7 @@
   --button-bg: hsla(
     var(--body-bg-hue),
     var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) + 20%),
+    calc(var(--body-bg-lightness) + 5%),
     1
   );
 
@@ -75,6 +81,13 @@
     var(--body-bg-saturation),
     calc(var(--body-bg-lightness) - 10%),
     1
+  );
+
+  --muted-color: hsla(
+    var(--muted-color-hue),
+    var(--muted-color-saturation),
+    var(--muted-color-lightness),
+    var(--muted-color-lightness)
   );
 }
 
@@ -105,6 +118,7 @@ body {
   padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);
   background-color: var(--button-bg);
   height: var(--button-height);
+  border-radius: var(--border-radius);
   cursor: pointer;
 }
 
@@ -119,7 +133,7 @@ body {
   align-items: center;
   background-color: var(--accent-bg);
   color: var(--accent-color);
-  padding: var(--padding);
+  padding: var(--padding) calc(var(--padding) + var(--margin));
 
   .buttons-group {
     margin-left: var(--margin);
@@ -132,6 +146,8 @@ body {
 }
 
 .main {
+  padding-left: var(--margin);
+  padding-right: var(--margin);
   width: 100%;
   display: flex;
 }

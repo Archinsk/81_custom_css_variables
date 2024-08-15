@@ -72,7 +72,6 @@
   );
 
   .button {
-    border-radius: var(--border-radius);
   }
 
   .sidebar-container {
@@ -120,6 +119,8 @@
 
         .card-header {
           padding-bottom: calc(var(--padding) * 0.5);
+          border-top-left-radius: var(--border-radius);
+          border-top-right-radius: var(--border-radius);
 
           .item-property-value {
             font-weight: bold;

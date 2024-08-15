@@ -65,7 +65,6 @@
     .button {
       background-color: var(--body-color);
       color: var(--accent-bg);
-      border-radius: var(--border-radius);
     }
   }
 
@@ -77,6 +76,10 @@
     .sidebar-item {
       &.active {
         background-color: var(--active-glass-bg);
+
+        .sidebar-item-text {
+          font-weight: bold;
+        }
       }
 
       &:not(.active) {
