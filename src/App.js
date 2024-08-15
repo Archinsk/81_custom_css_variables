@@ -51,7 +51,7 @@ function App() {
           <div class="button" onClick={() => changeTheme("glassmorphism")}>
             Glassmorphism
           </div>
-          <div class="button" onClick={() => changeTheme("claymorphisn")}>
+          <div class="button" onClick={() => changeTheme("claymorphism")}>
             Claymorphism
           </div>
           <div class="button" onClick={() => changeTheme("retrofuturism")}>

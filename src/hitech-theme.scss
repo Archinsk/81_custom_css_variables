@@ -1,0 +1,191 @@
+[data-theme="hi-tech"] {
+  --body-bg-hue: 187;
+  --body-bg-saturation: 78%;
+  --body-bg-lightness: 86%;
+  --body-color-hue: 208;
+  --body-color-saturation: 7%;
+  --body-color-lightness: 46%;
+  --accent-bg-hue: 72;
+  --accent-bg-saturation: 3%;
+  --accent-bg-lightness: 35%;
+  --accent-bg-opacity: 1;
+  --accent-color-hue: 0;
+  --accent-color-saturation: 0%;
+  --accent-color-lightness: 100%;
+  --accent-color-opacity: 1;
+  --base-bg-hue: 0;
+  --base-bg-saturation: 0%;
+  --base-bg-lightness: 100%;
+  --base-bg-opacity: 0.85;
+  /*--danger-color-hue: 265;
+  --danger-color-saturation: 59%;
+  --danger-color-lightness: 75%;
+  --danger-color-opacity: 0.5;*/
+  --muted-color-hue: 207;
+  --muted-color-saturation: 6%;
+  --muted-color-lightness: 61%;
+  --muted-color-opacity: 1;
+  --button-bg-hue: 72;
+  --button-bg-saturation: 4%;
+  --button-bg-lightness: 75%;
+  --button-bg-opacity: 1;
+  --active-bg-hue: 186;
+  --active-bg-saturation: 100%;
+  --active-bg-lightness: 58%;
+  --active-bg-opacity: 1;
+
+  --border-radius: 0.375rem;
+
+  --accent-bg: hsla(
+    var(--accent-bg-hue),
+    var(--accent-bg-saturation),
+    var(--accent-bg-lightness),
+    var(--accent-bg-opacity)
+  );
+
+  --accent-color: hsla(
+    var(--accent-color-hue),
+    var(--accent-color-saturation),
+    var(--accent-color-lightness),
+    var(--accent-color-opacity)
+  );
+
+  --base-bg: hsla(
+    var(--base-bg-hue),
+    var(--base-bg-saturation),
+    var(--base-bg-lightness),
+    var(--base-bg-opacity)
+  );
+
+  --active-bg: hsla(
+    var(--active-bg-hue),
+    var(--active-bg-saturation),
+    var(--active-bg-lightness),
+    var(--active-bg-opacity)
+  );
+
+  /*--danger-color: hsla(
+    var(--danger-color-hue),
+    var(--danger-color-saturation),
+    var(--danger-color-lightness),
+    var(--danger-color-opacity)
+  );*/
+
+  --muted-color: hsl(
+    var(--muted-color-hue),
+    var(--muted-color-saturation),
+    var(--muted-color-lightness),
+    var(--muted-color-opacity)
+  );
+
+  --button-bg: hsl(
+    var(--button-bg-hue),
+    var(--button-bg-saturation),
+    var(--button-bg-lightness),
+    var(--button-bg-opacity)
+  );
+
+  .icon {
+    font-size: calc(var(--body-font-size) * 1.25);
+  }
+
+  .button {
+    border-radius: var(--border-radius);
+  }
+
+  .header {
+    background-color: var(--accent-bg);
+    color: var(--accent-color);
+
+    .header-text {
+      font-size: calc(var(--body-font-size) * 1.5);
+      font-weight: bold;
+    }
+  }
+
+  .sidebar-container {
+    /*& > .buttons-group {
+      .button {
+        background-color: var(--upper-level-bg);
+      }
+    }*/
+
+    .sidebar {
+      gap: 0;
+
+      .sidebar-item {
+        .sidebar-item-text {
+          font-weight: bold;
+        }
+
+        &.active {
+          background-color: var(--active-bg);
+          border-radius: var(--border-radius);
+          // box-shadow: var(--intruded-shadow);
+
+          .button {
+            background-color: var(--accent-color);
+          }
+        }
+
+        &:not(.active) {
+          background-color: transparent;
+
+          .buttons-group {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .card-list-container {
+    /*& > .buttons-group {
+      .button {
+        background-color: var(--upper-level-bg);
+      }
+    }*/
+
+    .card-list {
+      .card {
+        border-radius: var(--border-radius);
+
+        .item-property-name {
+          font-size: calc(var(--body-font-size) * 0.875);
+          color: var(--muted-color);
+        }
+
+        .card-header {
+          padding-bottom: calc(var(--padding) * 0.5);
+
+          .item-property-value {
+            font-weight: bold;
+          }
+        }
+
+        .card-body {
+          padding-top: calc(var(--padding) * 0.5);
+        }
+
+        &.active {
+          // box-shadow: var(--intruded-shadow);
+          background-color: var(--accent-color);
+
+          .card-header {
+            background-color: var(--active-bg);
+          }
+
+          .button {
+            background-color: var(--accent-color);
+          }
+        }
+
+        &:not(.active) {
+          .buttons-group {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
