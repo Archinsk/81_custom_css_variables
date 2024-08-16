@@ -38,6 +38,8 @@
   --active-card-button-color-lightness: 0%;
   --active-card-button-color-opacity: 1;
 
+  --padding: 1.5rem;
+  --margin: 1.5rem;
   --border-radius: 0.25rem;
 
   /* --danger-color: hsla(
@@ -94,7 +96,13 @@
   }
 
   .header {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
     color: var(--active-sidebar-item-bg);
+
+    .buttons-group {
+      gap: calc(var(--gap) * 1.5);
+    }
 
     /*.button {
       background-color: var(--upper-level-bg);
@@ -102,12 +110,19 @@
     }*/
   }
 
+  .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .sidebar-container {
-    /*& > .buttons-group {
-      .button {
+    & > .buttons-group {
+      gap: calc(var(--gap) * 1.5);
+
+      /* .button {
         background-color: var(--upper-level-bg);
-      }
-    }*/
+      } */
+    }
 
     .sidebar {
       gap: 0;
@@ -117,6 +132,13 @@
       }
 
       .sidebar-item {
+        padding: calc(var(--padding) * 1 / 3) calc(var(--padding) * 1 / 3)
+          calc(var(--padding) * 1 / 3) calc(var(--padding) * 2 / 3);
+
+        .buttons-group {
+          gap: calc(var(--gap) * 0.5);
+        }
+
         &.active {
           background-color: var(--active-sidebar-item-bg);
           color: var(--active-sidebar-item-color);
@@ -137,18 +159,22 @@
   }
 
   .card-list-container {
-    /*& > .buttons-group {
-      .button {
+    & > .buttons-group {
+      gap: calc(var(--gap) * 1.5);
+
+      /*.button {
         background-color: var(--upper-level-bg);
-      }
-    }*/
+      }*/
+    }
 
     .card-list {
+      gap: calc(var(--gap) * 1.5);
+
       .card {
         border-radius: var(--border-radius);
 
         .card-header {
-          padding-bottom: calc(var(--padding) * 0.5);
+          padding-bottom: calc(var(--padding) * 2 / 3);
 
           .item-property-value {
             font-weight: bold;
