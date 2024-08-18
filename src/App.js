@@ -163,8 +163,8 @@ function App() {
                   </div>
                 </div>
                 <div class="item-property">
-                  <div class="item-property-name">Header-1</div>
-                  <div class="item-property-value">Subheader-1</div>
+                  <div class="item-property-name">Card-name-01</div>
+                  <div class="item-property-value">Card-title-01</div>
                 </div>
               </div>
               <div class="card-body">
@@ -189,8 +189,8 @@ function App() {
             <div class="card">
               <div class="card-header">
                 <div class="item-property">
-                  <div class="item-property-name">Header-1</div>
-                  <div class="item-property-value">Subheader-1</div>
+                  <div class="item-property-name">Card-name-02</div>
+                  <div class="item-property-value">Card-title-02</div>
                 </div>
                 <div class="buttons-group">
                   <div class="button">
@@ -226,8 +226,8 @@ function App() {
             <div class="card">
               <div class="card-header">
                 <div class="item-property">
-                  <div class="item-property-name">Header-1</div>
-                  <div class="item-property-value">Subheader-1</div>
+                  <div class="item-property-name">Card-name-03</div>
+                  <div class="item-property-value">Card-title-03</div>
                 </div>
                 <div class="buttons-group">
                   <div class="button">
@@ -263,8 +263,8 @@ function App() {
             <div class="card">
               <div class="card-header">
                 <div class="item-property">
-                  <div class="item-property-name">Header-1</div>
-                  <div class="item-property-value">Subheader-1</div>
+                  <div class="item-property-name">Card-name-04</div>
+                  <div class="item-property-value">Card-title-04</div>
                 </div>
                 <div class="buttons-group">
                   <div class="button">

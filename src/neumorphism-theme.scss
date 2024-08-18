@@ -13,8 +13,8 @@
 
   --padding: 1.5rem;
   --margin: 1.5rem;
-
   --border-radius: 1.125rem;
+
   --shadow-size: 0.25rem;
   --shadow-blur: 0.25rem;
   --shadow-spread: 0rem;
@@ -87,7 +87,6 @@
       padding-top: var(--padding);
       padding-bottom: var(--padding);
       background-color: var(--upper-level-bg);
-      border-radius: var(--border-radius);
       box-shadow: var(--extruded-shadow);
 
       .sidebar-item {
@@ -127,14 +126,12 @@
       gap: calc(var(--gap) * 1.5);
 
       .card {
-        border-radius: var(--border-radius);
-
-        .item-property-value {
-          font-weight: bold;
-        }
-
         .card-header {
           padding-bottom: calc(var(--padding) * 0.25);
+
+          .item-property-value {
+            font-weight: bold;
+          }
         }
 
         .card-body {

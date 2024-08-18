@@ -32,11 +32,22 @@
 
   --padding: 1.5rem;
   --margin: 1.5rem;
-
   --border-radius: 1.125rem;
 
   --base-bg: hsl(
     var(--base-bg-hue),
+    var(--base-bg-saturation),
+    var(--base-bg-lightness)
+  );
+
+  --secondary-card-color: hsl(
+    calc(var(--base-bg-hue) + 105),
+    var(--base-bg-saturation),
+    var(--base-bg-lightness)
+  );
+
+  --tertiary-card-color: hsl(
+    calc(var(--base-bg-hue) - 30),
     var(--base-bg-saturation),
     var(--base-bg-lightness)
   );
@@ -46,6 +57,12 @@
     var(--button-bg-saturation),
     var(--button-bg-lightness),
     var(--button-bg-opacity)
+  );
+
+  --square-button-bg: hsl(
+    calc(var(--base-bg-hue) + 105),
+    var(--base-bg-saturation),
+    calc(var(--base-bg-lightness) - 40%)
   );
 
   /* --danger-color: hsla(
@@ -68,6 +85,7 @@
   .header {
     margin: var(--margin) calc(var(--margin) * 2) 0;
     padding: var(--padding);
+    border-radius: calc(var(--border-radius) + var(--padding));
 
     .buttons-group {
       gap: calc(var(--gap) * 1.5);
@@ -78,7 +96,6 @@
     & > .buttons-group {
       .button {
         gap: calc(var(--gap) * 1.5);
-        // background-color: var(--upper-level-bg);
       }
     }
 
@@ -87,7 +104,7 @@
       padding-top: var(--padding);
       padding-bottom: var(--padding);
       background-color: var(--base-bg);
-      border-radius: var(--border-radius);
+      border-radius: calc(var(--border-radius) + var(--padding));
       // box-shadow: var(--extruded-shadow);
 
       .sidebar-item {
@@ -105,7 +122,8 @@
           // box-shadow: var(--intruded-shadow);
 
           .button {
-            // background-color: var(--upper-level-bg);
+            background-color: var(--square-button-bg);
+            color: var(--button-bg);
           }
         }
 
@@ -129,24 +147,30 @@
       row-gap: calc(var(--gap) * 1.5);
 
       .card {
-        border-radius: var(--border-radius);
-
-        .item-property-value {
-          font-weight: bold;
-        }
+        border-radius: calc(var(--border-radius) + var(--padding));
 
         .card-header {
           margin: calc(var(--margin) * 2 / 3) calc(var(--margin) * 2 / 3) 0;
           padding-top: calc(var(--padding) * 2 / 3);
           padding-bottom: calc(var(--padding) * 2 / 3);
           background-color: var(--button-bg);
-          border-radius: var(--border-radius);
+          border-radius: calc(
+            var(--border-radius) + var(--padding) - calc(var(--margin) * 2 / 3)
+          );
+
+          .item-property-value {
+            font-weight: bold;
+          }
         }
 
         .card-body {
+          // background-color: hsla(0, 0%, 0%, 0.2);
           margin: calc(var(--margin) * 2 / 3);
           padding-top: calc(var(--padding) * 2 / 3);
           padding-bottom: calc(var(--padding) * 2 / 3);
+          border-radius: calc(
+            var(--border-radius) + var(--padding) - calc(var(--margin) * 2 / 3)
+          );
         }
 
         &.active {
@@ -154,12 +178,25 @@
           // box-shadow: var(--intruded-shadow);
 
           .button {
-            // background-color: var(--body-bg);
+            background-color: var(--square-button-bg);
+            color: var(--button-bg);
           }
         }
 
         &:not(.active) {
           // box-shadow: var(--extruded-shadow);
+        }
+
+        &:nth-child(9n + 2),
+        &:nth-child(9n + 4),
+        &:nth-child(9n) {
+          background-color: var(--secondary-card-color);
+        }
+
+        &:nth-child(9n + 3),
+        &:nth-child(9n + 5),
+        &:nth-child(9n + 7) {
+          background-color: var(--tertiary-card-color);
         }
       }
     }

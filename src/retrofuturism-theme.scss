@@ -63,6 +63,8 @@
     var(--button-bg-opacity)
   );
 
+  --header-button-bg: hsl(318, 92%, 95%);
+
   --active-sidebar-item-bg: hsla(
     var(--active-sidebar-item-bg-hue),
     var(--active-sidebar-item-bg-saturation),
@@ -104,10 +106,10 @@
       gap: calc(var(--gap) * 1.5);
     }
 
-    /*.button {
-      background-color: var(--upper-level-bg);
-      color: var(--body-color);
-    }*/
+    .button {
+      background-color: var(--header-button-bg);
+      color: var(--active-card-button-color);
+    }
   }
 
   .main {
@@ -119,9 +121,9 @@
     & > .buttons-group {
       gap: calc(var(--gap) * 1.5);
 
-      /* .button {
-        background-color: var(--upper-level-bg);
-      } */
+      .button {
+        background-color: transparent;
+      }
     }
 
     .sidebar {
@@ -142,7 +144,7 @@
         &.active {
           background-color: var(--active-sidebar-item-bg);
           color: var(--active-sidebar-item-color);
-          border-radius: var(--border-radius);
+          border-radius: calc(var(--border-radius) * 1.5);
           // box-shadow: var(--intruded-shadow);
 
           .button {
@@ -162,16 +164,16 @@
     & > .buttons-group {
       gap: calc(var(--gap) * 1.5);
 
-      /*.button {
-        background-color: var(--upper-level-bg);
-      }*/
+      .button {
+        background-color: transparent;
+      }
     }
 
     .card-list {
       gap: calc(var(--gap) * 1.5);
 
       .card {
-        border-radius: var(--border-radius);
+        border-radius: calc(var(--border-radius) * 1.5);
 
         .card-header {
           padding-bottom: calc(var(--padding) * 2 / 3);
@@ -188,9 +190,17 @@
         &.active {
           background-color: var(--accent-bg);
 
-          .button {
-            background-color: var(--active-card-button-bg);
-            color: var(--active-card-button-color);
+          .card-header {
+            .button {
+              background-color: var(--active-card-button-bg);
+              color: var(--active-card-button-color);
+            }
+          }
+
+          .card-body {
+            .item-property-value {
+              font-weight: bold;
+            }
           }
         }
 

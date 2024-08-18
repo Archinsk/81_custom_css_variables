@@ -11,7 +11,7 @@
   --accent-bg-opacity: 1;
   --glass-bg-hue: 0;
   --glass-bg-saturation: 0%;
-  --glass-bg-lightness: 100%;
+  --glass-bg-lightness: 0%;
   --glass-bg-opacity: 0.25;
   --active-glass-bg-hue: 265;
   --active-glass-bg-saturation: 59%;
@@ -58,7 +58,6 @@
   .button {
     background-color: var(--body-color);
     color: var(--accent-bg);
-    border-radius: var(--border-radius);
   }
 
   .header {
@@ -71,11 +70,15 @@
   .sidebar {
     gap: 0;
     background-color: var(--glass-bg);
-    border-radius: var(--border-radius);
+    padding-top: calc(var(--margin) * 0.5);
+    padding-bottom: calc(var(--margin) * 0.5);
 
     .sidebar-item {
       &.active {
         background-color: var(--active-glass-bg);
+        margin-left: calc(var(--margin) * 0.5);
+        margin-right: calc(var(--margin) * 0.5);
+        border-radius: var(--border-radius);
 
         .sidebar-item-text {
           font-weight: bold;
@@ -84,14 +87,13 @@
 
       &:not(.active) {
         background-color: transparent;
+        padding: var(--padding) calc(var(--padding) * 1.5);
       }
     }
   }
 
   .card-list {
     .card {
-      border-radius: var(--border-radius);
-
       .card-header {
         .item-property-value {
           font-weight: bold;

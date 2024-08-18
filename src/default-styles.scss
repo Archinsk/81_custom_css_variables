@@ -166,6 +166,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--gap);
+  border-radius: var(--border-radius);
 }
 
 .sidebar-item {
@@ -213,6 +214,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--base-bg);
+  border-radius: var(--border-radius);
 
   &:not(.active) {
     .buttons-group {

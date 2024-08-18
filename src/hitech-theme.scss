@@ -74,17 +74,27 @@
   .button {
   }
 
+  .header {
+    .button {
+      background-color: var(--active-bg);
+      color: var(--body-color);
+    }
+  }
+
   .sidebar-container {
-    /*& > .buttons-group {
+    & > .buttons-group {
       .button {
-        background-color: var(--upper-level-bg);
+        color: var(--accent-color);
       }
-    }*/
+    }
 
     .sidebar {
       gap: 0;
 
       .sidebar-item {
+        padding: calc(var(--padding) * 0.5) calc(var(--padding) * 0.5)
+          calc(var(--padding) * 0.5) var(--padding);
+
         .buttons-group {
           gap: calc(var(--gap) * 0.5);
         }
@@ -100,6 +110,7 @@
 
           .button {
             background-color: var(--accent-color);
+            border-radius: calc(var(--border-radius) * 2 / 3);
           }
         }
 
@@ -111,18 +122,18 @@
   }
 
   .card-list-container {
-    /*& > .buttons-group {
+    & > .buttons-group {
       .button {
-        background-color: var(--upper-level-bg);
+        color: var(--accent-color);
       }
-    }*/
+    }
 
     .card-list {
       .card {
         border-radius: var(--border-radius);
 
         .card-header {
-          padding-bottom: calc(var(--padding) * 0.5);
+          padding-bottom: calc(var(--padding) * 0.75);
           border-top-left-radius: var(--border-radius);
           border-top-right-radius: var(--border-radius);
 
@@ -133,7 +144,7 @@
 
         .card-body {
           row-gap: calc(var(--gap) * 0.75);
-          padding-top: calc(var(--padding) * 0.5);
+          padding-top: calc(var(--padding) * 0.75);
         }
 
         &.active {
@@ -146,6 +157,7 @@
 
           .button {
             background-color: var(--accent-color);
+            border-radius: calc(var(--border-radius) * 2 / 3);
           }
         }
       }
