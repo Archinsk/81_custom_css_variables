@@ -15,11 +15,20 @@
   --margin: 1.5rem;
   --border-radius: 1.125rem;
 
-  --shadow-size: 0.25rem;
+  --shadow-offset: 0.25rem;
+  --shadow-offset-xxl: calc(var(--shadow-offset) * 1.5);
+  --shadow-offset-xxs: calc(var(--shadow-offset) * 0.125);
   --shadow-blur: 0.25rem;
-  --shadow-spread: 0rem;
-  --shadow-opacity: 0.2;
-  --light-opacity: 0.75;
+  --shadow-blur-xxl: calc(var(--shadow-blur) * 1.5);
+  --shadow-spread: 0.25rem;
+  --shadow-spread-xxs: calc(var(--shadow-spread) * 0.125);
+  --shadow-opacity: calc(45% - var(--body-bg-lightness) * 0.4);
+  --shadow-opacity-sm: calc(var(--shadow-opacity) * 0.75);
+  --shadow-opacity-xs: calc(var(--shadow-opacity) * 0.25);
+  --shadow-opacity-xxl: calc(var(--shadow-opacity) * 2);
+  --shadow-opacity-lg: calc(var(--shadow-opacity) * 1.25);
+  --light-opacity: calc(5% + var(--body-bg-lightness) * 0.4);
+  --light-opacity-xs: calc(var(--light-opacity) * 0.5);
 
   --active-bg: hsl(
     var(--body-bg-hue),
@@ -45,18 +54,41 @@
     calc(var(--body-color-lightness) + var(--level-lightness-offset) * 5)
   );
 
-  --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)
-    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity));
-  --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)
-    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity));
-  --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))
-    var(--shadow-blur) var(--shadow-spread)
+  --outer-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) 0
+    hsla(0, 0%, 0%, var(--shadow-opacity));
+  --outer-shadow-lg: var(--shadow-offset-xxl) var(--shadow-offset-xxl)
+    var(--shadow-blur-xxl) var(--shadow-spread)
+    hsla(0, 0%, 0%, var(--shadow-opacity-xs));
+  --outer-shadow-xxs: var(--shadow-offset-xxs) var(--shadow-offset-xxs) 0
+    var(--shadow-spread-xxs) hsla(0, 0%, 0%, var(--shadow-opacity));
+  --inner-shadow: inset var(--outer-shadow);
+  --inner-shadow-lg: inset var(--outer-shadow-lg);
+  --inner-shadow-xxs: inset var(--outer-shadow-xxs);
+
+  --outer-light: calc(-1 * var(--shadow-offset)) calc(-1 * var(--shadow-offset))
+    var(--shadow-blur) 0 hsla(0, 0%, 100%, var(--light-opacity));
+  --outer-light-lg: calc(-1 * var(--shadow-offset-xxl))
+    calc(-1 * var(--shadow-offset-xxl)) var(--shadow-blur-xxl)
+    var(--shadow-spread) hsla(0, 0%, 100%, var(--light-opacity-xs));
+  --outer-light-xxs: calc(-1 * var(--shadow-offset-xxs))
+    calc(-1 * var(--shadow-offset-xxs)) 0 var(--shadow-spread-xxs)
     hsla(0, 0%, 100%, var(--light-opacity));
-  --inner-light: inset calc(-1 * var(--shadow-size))
-    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)
-    hsla(0, 0%, 100%, var(--light-opacity));
-  --extruded-shadow: var(--outer-light), var(--outer-shadow);
-  --intruded-shadow: var(--inner-shadow), var(--inner-light);
+  --inner-light: inset var(--outer-light);
+  --inner-light-lg: inset var(--outer-light-lg);
+  --inner-light-xxs: inset var(--outer-light-xxs);
+
+  --extruded-shadow: var(--outer-light-xxs), var(--outer-light),
+    var(--outer-light-lg), var(--outer-shadow-xxs), var(--outer-shadow),
+    var(--outer-shadow-lg);
+  --intruded-shadow: var(--inner-shadow-xxs), var(--inner-shadow),
+    var(--inner-shadow-lg), var(--inner-light-xxs), var(--inner-light),
+    var(--inner-light-lg);
+  --extruded-shadow: var(--outer-light-xxs), var(--outer-light),
+    var(--outer-light-lg), var(--outer-shadow-xxs), var(--outer-shadow),
+    var(--outer-shadow-lg);
+  --intruded-shadow: var(--inner-shadow-xxs), var(--inner-shadow),
+    var(--inner-shadow-lg), var(--inner-light-xxs), var(--inner-light),
+    var(--inner-light-lg);
 
   .button {
     box-shadow: var(--extruded-shadow);

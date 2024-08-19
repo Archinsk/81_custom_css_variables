@@ -331,6 +331,16 @@ function App() {
             <option value="proxima-nova">ProximaNova</option>
             <option value="nunito">Nunito</option>
           </select>
+          <input
+            type="color"
+            onChange={(e) => {
+              setValue({
+                selector: '[data-theme="neumorphism"] .button',
+                property: "borderRadius",
+                value: e.target.value + "rem",
+              });
+            }}
+          />
         </div>
       </div>
     </div>
