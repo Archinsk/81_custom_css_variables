@@ -1,10 +1,11 @@
 [data-theme="neumorphism"] {
   --body-bg-hue: 220;
-  --body-bg-saturation: 29%;
-  --body-bg-lightness: 92%;
-  --body-color-hue: 208;
-  --body-color-saturation: 7%;
+  --body-bg-saturation: 30%;
+  --body-bg-lightness: 90%;
+  --body-color-hue: calc(var(--body-bg-hue) - 10);
+  --body-color-saturation: calc(var(--body-bg-saturation) - 20%);
   --body-color-lightness: 46%;
+
   --level-lightness-offset: 3%;
   --accent-bg-hue: 239;
   --accent-bg-saturation: 75%;
@@ -24,11 +25,11 @@
   --shadow-spread-xxs: calc(var(--shadow-spread) * 0.125);
   --shadow-opacity: calc(45% - var(--body-bg-lightness) * 0.4);
   --shadow-opacity-sm: calc(var(--shadow-opacity) * 0.75);
-  --shadow-opacity-xs: calc(var(--shadow-opacity) * 0.25);
+  --shadow-opacity-xs: calc(var(--shadow-opacity) * 0.25); // 0.25 или 0.5
   --shadow-opacity-xxl: calc(var(--shadow-opacity) * 2);
   --shadow-opacity-lg: calc(var(--shadow-opacity) * 1.25);
   --light-opacity: calc(5% + var(--body-bg-lightness) * 0.4);
-  --light-opacity-xs: calc(var(--light-opacity) * 0.5);
+  --light-opacity-xs: calc(var(--light-opacity) * 0.5); // 0.25 или 0.5
 
   --active-bg: hsl(
     var(--body-bg-hue),
