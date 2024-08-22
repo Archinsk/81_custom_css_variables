@@ -37,11 +37,39 @@ function App() {
     //console.log(document.styleSheets[2].deleteRule(3));
   }
 
+  function changeMode() {
+    const lightness = getLightnessFromRgb(
+      getComputedStyle(document.body).backgroundColor
+    );
+    if (lightness < 50 && document.documentElement.dataset.mode !== "dark") {
+      document.documentElement.setAttribute("data-mode", "dark");
+    } else if (
+      lightness >= 50 &&
+      document.documentElement.dataset.mode === "dark"
+    ) {
+      document.documentElement.removeAttribute("data-mode");
+    }
+  }
+
+  function getLightnessFromRgb(rgbString) {
+    const [r, g, b] = rgbString
+      .slice(4, -1)
+      .split(",")
+      .map((i) => (i = +i));
+    const min = Math.min(r, g, b);
+    const max = Math.max(r, g, b);
+    const lightness = +(((max + min) / 2 / 255) * 100).toFixed(2);
+    return lightness;
+  }
+
   return (
     <div className="app">
       <div class="header">
         <div class="header-text">Header</div>
         <div class="buttons-group">
+          <div class="button" onClick={() => changeMode()}>
+            Dark mode
+          </div>
           <div class="button" onClick={() => changeTheme()}>
             Default
           </div>
@@ -59,6 +87,9 @@ function App() {
           </div>
           <div class="button" onClick={() => changeTheme("hi-tech")}>
             Hi-tech
+          </div>
+          <div class="button" onClick={() => changeTheme("hi-tech")}>
+            Sidebar
           </div>
         </div>
       </div>
