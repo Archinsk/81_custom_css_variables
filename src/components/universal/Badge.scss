@@ -1,0 +1,19 @@
+.badge {
+  display: inline-block;
+  padding: var(--badge-padding-y, calc(var(--emphasis, 1em) * 0.35))
+    var(--badge-padding-x, calc(var(--emphasis, 1em) * 0.65));
+  font-size: var(--badge-font-size, calc(var(--emphasis, 1em) * 0.75));
+  font-weight: var(--badge-font-weight, var(--font-weight));
+  line-height: 1;
+  background-color: var(--badge-bg, var(--accent-bg));
+  color: var(--badge-color, var(--accent-color));
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--badge-border-radius, var(--border-radius));
+}
+
+.btn .badge {
+  position: relative;
+  top: calc(var(--button-border-width, var(--border-width, 1px)) * -1);
+}

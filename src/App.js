@@ -1,5 +1,11 @@
 // import "./App.css";
 
+import Badge from "./components/universal/Badge";
+import Button from "./components/universal/Button";
+import Icon from "./components/universal/Icon";
+import Offcanvas from "./components/universal/Offcanvas";
+import OffcanvasHeader from "./components/universal/OffcanvasHeader";
+
 function App() {
   function changeTheme(theme) {
     if (theme) {
@@ -372,6 +378,20 @@ function App() {
               });
             }}
           />
+          <Icon name="favorite" />
+          <Icon name="favorite" className="danger-icon" />
+          <Badge>Children</Badge>
+          <Badge className="danger-badge">Classname</Badge>
+          <Button>Children</Button>
+          <Button className="danger-button">ClassName</Button>
+          <Button type="reset">Type</Button>
+          <Button size="sm">Size</Button>
+          <Button block>Block</Button>
+          <Button square>Square</Button>
+          <OffcanvasHeader>Title</OffcanvasHeader>
+          <Offcanvas title="Offcanvas Title" className="show">
+            Offcanvas content
+          </Offcanvas>
         </div>
       </div>
     </div>

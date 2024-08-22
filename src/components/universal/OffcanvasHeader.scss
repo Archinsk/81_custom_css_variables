@@ -1,0 +1,11 @@
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  padding: var(--offcanvas-padding-y, var(--padding))
+    var(--offcanvas-padding-x, var(--padding));
+
+  .offcanvas-title {
+    margin-bottom: 0;
+    line-height: var(--offcanvas-title-line-height);
+  }
+}

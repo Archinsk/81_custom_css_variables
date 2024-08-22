@@ -1,0 +1,51 @@
+.material-icon {
+  font-family: "material-icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  // Не верно, требуется уточнение
+  vertical-align: calc(-0.125em + (1em - 1rem) / 20);
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin button-square-icon {
+  .icon {
+    font-size: 1.5em;
+    line-height: 1em;
+  }
+}
+
+.button-square {
+  @include button-square-icon;
+}
+
+@media (min-width: 576px) {
+  .button-square-sm {
+    @include button-square-icon;
+  }
+}
+
+@media (min-width: 768px) {
+  .button-square-md {
+    @include button-square-icon;
+  }
+}
+
+@media (min-width: 992px) {
+  .button-square-lg {
+    @include button-square-icon;
+  }
+}
+
+@media (min-width: 1200px) {
+  .button-square-xl {
+    @include button-square-icon;
+  }
+}

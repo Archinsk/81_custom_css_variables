@@ -1,0 +1,6 @@
+.offcanvas-body {
+  flex-grow: 1;
+  padding: var(--offcanvas-padding-y, var(--padding))
+    var(--bs-offcanvas-padding-x, var(--padding));
+  overflow-y: auto;
+}
