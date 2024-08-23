@@ -9,15 +9,7 @@ import OffcanvasBody from "./components/universal/OffcanvasBody";
 
 function App() {
   const [isRightSidebarShow, setRightSidebarShow] = useState(false);
-
-  function changeTheme(theme) {
-    if (theme) {
-      document.documentElement.setAttribute("data-theme", theme);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
-    }
-    console.log(document.documentElement.style);
-  }
+  const [theme, setTheme] = useState(null);
 
   function changeVar(customVar, increaseValue) {
     const value = getComputedStyle(document.documentElement).getPropertyValue(
@@ -28,37 +20,6 @@ function App() {
       +value + increaseValue
     );
     console.log(document.styleSheets);
-  }
-
-  function setValue(obj) {
-    console.log(obj);
-    console.log(document.styleSheets[2]);
-    console.log(document.styleSheets[2].cssRules[0]);
-    document.styleSheets[2].deleteRule(0);
-    document.styleSheets[2].insertRule(
-      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: ${obj.value}; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); }`,
-      0
-    );
-    /*document.styleSheets[2].insertRule(
-      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: 1.125rem; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); --font-family: ${obj.value};}`,
-      0
-    );*/
-    //console.log(document.styleSheets[2].deleteRule(3));
-  }
-
-  function changeCssRule(cssRuleObj) {
-    const styleSheetIndex = findStyleSheetIndexByCssSelector(
-      cssRuleObj.selector
-    );
-    const cssRuleIndex = findCssRuleIndexByCssProperty(
-      styleSheetIndex,
-      cssRuleObj.property
-    );
-    if (cssRuleIndex >= 0) {
-      updateCssRule();
-    } else {
-      createCssRule();
-    }
   }
 
   function changeMode() {
@@ -86,6 +47,105 @@ function App() {
     return lightness;
   }
 
+  function updateTheme(theme) {
+    setTheme(theme || null);
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  }
+
+  function changeCssRule(cssRuleObj) {
+    console.log(theme);
+    console.log(cssRuleObj);
+    console.log([...document.styleSheets]);
+
+    const styleSheetIndex = findStyleSheetIndexByCssSelector(
+      cssRuleObj.selector
+    );
+    console.log(styleSheetIndex);
+
+    const cssRuleIndex = findCssRuleIndexByCssProperty(
+      styleSheetIndex,
+      cssRuleObj.property
+    );
+    console.log(cssRuleIndex);
+    if (cssRuleIndex >= 0) {
+      updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj);
+    } else {
+      createCssRule(styleSheetIndex, cssRuleObj);
+    }
+  }
+
+  function setValue(obj) {
+    console.log(obj);
+    console.log(document.styleSheets[2]);
+    console.log(document.styleSheets[2].cssRules[0]);
+    document.styleSheets[2].deleteRule(0);
+    document.styleSheets[2].insertRule(
+      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: ${obj.value}; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); }`,
+      0
+    );
+    /*document.styleSheets[2].insertRule(
+      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: 1.125rem; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); --font-family: ${obj.value};}`,
+      0
+    );*/
+    //console.log(document.styleSheets[2].deleteRule(3));
+  }
+
+  function findStyleSheetIndexByCssSelector(selector) {
+    console.log(selector);
+    const styleSheets = [...document.styleSheets];
+    for (let i = 0; i < styleSheets.length; i++) {
+      const styleSheet = styleSheets[i];
+      for (let j = 0; j < styleSheet.cssRules.length; j++) {
+        if (styleSheet.cssRules[j].cssText.includes(selector)) {
+          return i;
+        }
+      }
+    }
+  }
+
+  function findCssRuleIndexByCssProperty(styleSheetIndex, property) {
+    console.log(styleSheetIndex);
+    console.log(property);
+    const styleSheets = [...document.styleSheets];
+    console.log();
+    const cssRules = [...styleSheets[styleSheetIndex].cssRules];
+    for (let i = 0; i < cssRules.length; i++) {
+      console.log(cssRules[i]);
+      if (cssRules[i].cssText.includes(property)) {
+        return i;
+      }
+    }
+  }
+
+  function updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj) {
+    console.log("update Rule");
+    const cssRule =
+      document.styleSheets[styleSheetIndex].cssRules[cssRuleIndex].cssText;
+    console.log(cssRule);
+    deleteCssRule(styleSheetIndex, cssRuleIndex);
+    createCssRule(styleSheetIndex, cssRuleObj);
+  }
+
+  function createCssRule(styleSheetIndex, cssRuleObj) {
+    console.log("create Rule");
+    console.log(styleSheetIndex);
+    console.log(cssRuleObj);
+    document.styleSheets[styleSheetIndex].insertRule(
+      `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}; }`,
+      0
+    );
+    console.log(document.styleSheets);
+  }
+
+  function deleteCssRule(styleSheetIndex, cssRuleIndex) {
+    console.log("delete Rule");
+    document.styleSheets[styleSheetIndex].deleteRule(cssRuleIndex);
+  }
+
   return (
     <div className="app">
       <div class="header">
@@ -94,22 +154,22 @@ function App() {
           <div class="button" onClick={() => changeMode()}>
             Dark mode
           </div>
-          <div class="button" onClick={() => changeTheme()}>
+          <div class="button" onClick={() => updateTheme()}>
             Default
           </div>
-          <div class="button" onClick={() => changeTheme("neumorphism")}>
+          <div class="button" onClick={() => updateTheme("neumorphism")}>
             Neumorphism
           </div>
-          <div class="button" onClick={() => changeTheme("glassmorphism")}>
+          <div class="button" onClick={() => updateTheme("glassmorphism")}>
             Glassmorphism
           </div>
-          <div class="button" onClick={() => changeTheme("claymorphism")}>
+          <div class="button" onClick={() => updateTheme("claymorphism")}>
             Claymorphism
           </div>
-          <div class="button" onClick={() => changeTheme("retrofuturism")}>
+          <div class="button" onClick={() => updateTheme("retrofuturism")}>
             Retrofuturism
           </div>
-          <div class="button" onClick={() => changeTheme("hi-tech")}>
+          <div class="button" onClick={() => updateTheme("hi-tech")}>
             Hi-tech
           </div>
           <Button
@@ -372,14 +432,34 @@ function App() {
           <OffcanvasBody>
             <div class="settings">
               <div>
+                <label for="setting-01">Theme</label>
+                <select
+                  id="setting-00"
+                  className="form-control"
+                  onChange={(e) => {
+                    updateTheme(e.target.value);
+                  }}
+                >
+                  <option value="" disabled>
+                    Choose Theme
+                  </option>
+                  <option value="">Default</option>
+                  <option value="neumorphism">Neumorphism</option>
+                  <option value="glassmorphism">Glassmorphism</option>
+                  <option value="claymorphism">Claymorphism</option>
+                  <option value="retrofuturism">Retrofuturism</option>
+                  <option value="hi-tech">Hi-tech</option>
+                </select>
+              </div>
+              <div>
                 <label for="setting-01">Font family</label>
                 <select
                   id="setting-01"
                   className="form-control"
                   onChange={(e) => {
                     changeCssRule({
-                      selector: '[data-theme="neumorphism"]',
-                      property: "--font-family",
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--body-font-family",
                       value: e.target.value,
                     });
                   }}
@@ -400,13 +480,13 @@ function App() {
                   id="setting-02"
                   type="range"
                   className="form-control"
-                  min="0"
-                  max="2.125"
-                  step="0.125"
+                  min="0.5"
+                  max="3.0"
+                  step="0.5"
                   onChange={(e) => {
-                    setValue({
-                      selector: '[data-theme="neumorphism"] .button',
-                      property: "borderRadius",
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--body-font-size",
                       value: e.target.value + "rem",
                     });
                   }}
@@ -423,7 +503,7 @@ function App() {
                   }}
                 />
               </div>
-              <div>
+              {/* <div>
                 <label for="setting-04">Saturation</label>
                 <input
                   id="setting-04"
@@ -510,7 +590,7 @@ function App() {
                     setValue();
                   }}
                 />
-              </div>
+              </div> */}
 
               {/* <input
                 type="color"
