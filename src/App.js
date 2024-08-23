@@ -1,12 +1,15 @@
 // import "./App.css";
-
+import { useState } from "react";
 import Badge from "./components/universal/Badge";
 import Button from "./components/universal/Button";
 import Icon from "./components/universal/Icon";
 import Offcanvas from "./components/universal/Offcanvas";
 import OffcanvasHeader from "./components/universal/OffcanvasHeader";
+import OffcanvasBody from "./components/universal/OffcanvasBody";
 
 function App() {
+  const [isRightSidebarShow, setRightSidebarShow] = useState(false);
+
   function changeTheme(theme) {
     if (theme) {
       document.documentElement.setAttribute("data-theme", theme);
@@ -94,7 +97,7 @@ function App() {
           <div class="button" onClick={() => changeTheme("hi-tech")}>
             Hi-tech
           </div>
-          <div class="button" onClick={() => changeTheme("hi-tech")}>
+          <div class="button" onClick={() => setRightSidebarShow(true)}>
             Sidebar
           </div>
         </div>
@@ -336,63 +339,75 @@ function App() {
             </div>
           </div>
         </div>
-        <div class="settings">
-          <input
-            type="range"
-            min="0"
-            max="2.125"
-            step="0.125"
-            onChange={(e) => {
-              setValue({
-                selector: '[data-theme="neumorphism"] .button',
-                property: "borderRadius",
-                value: e.target.value + "rem",
-              });
+
+        <Offcanvas custom show={isRightSidebarShow} position="right">
+          <Button
+            icon="close"
+            square
+            onClick={() => {
+              setRightSidebarShow(false);
             }}
           />
-          <select
-            onChange={(e) => {
-              setValue({
-                selector: '[data-theme="neumorphism"]',
-                property: "--font-family",
-                value: e.target.value,
-              });
-            }}
-          >
-            <option value="" disabled>
-              Choose font
-            </option>
-            <option value="roboto">Roboto</option>
-            <option value="open-sans">OpenSans</option>
-            <option value="inter">Inter</option>
-            <option value="proxima-nova">ProximaNova</option>
-            <option value="nunito">Nunito</option>
-          </select>
-          <input
-            type="color"
-            onChange={(e) => {
-              setValue({
-                selector: '[data-theme="neumorphism"] .button',
-                property: "borderRadius",
-                value: e.target.value + "rem",
-              });
-            }}
-          />
-          <Icon name="favorite" />
-          <Icon name="favorite" className="danger-icon" />
-          <Badge>Children</Badge>
-          <Badge className="danger-badge">Classname</Badge>
-          <Button>Children</Button>
-          <Button className="danger-button">ClassName</Button>
-          <Button type="reset">Type</Button>
-          <Button size="sm">Size</Button>
-          <Button block>Block</Button>
-          <Button square>Square</Button>
-          <OffcanvasHeader>Title</OffcanvasHeader>
-          <Offcanvas title="Offcanvas Title" className="show">
-            Offcanvas content
-          </Offcanvas>
-        </div>
+          <OffcanvasBody>
+            <div class="settings">
+              <input
+                type="range"
+                min="0"
+                max="2.125"
+                step="0.125"
+                onChange={(e) => {
+                  setValue({
+                    selector: '[data-theme="neumorphism"] .button',
+                    property: "borderRadius",
+                    value: e.target.value + "rem",
+                  });
+                }}
+              />
+              <select
+                onChange={(e) => {
+                  setValue({
+                    selector: '[data-theme="neumorphism"]',
+                    property: "--font-family",
+                    value: e.target.value,
+                  });
+                }}
+              >
+                <option value="" disabled>
+                  Choose font
+                </option>
+                <option value="roboto">Roboto</option>
+                <option value="open-sans">OpenSans</option>
+                <option value="inter">Inter</option>
+                <option value="proxima-nova">ProximaNova</option>
+                <option value="nunito">Nunito</option>
+              </select>
+              <input
+                type="color"
+                onChange={(e) => {
+                  setValue({
+                    selector: '[data-theme="neumorphism"] .button',
+                    property: "borderRadius",
+                    value: e.target.value + "rem",
+                  });
+                }}
+              />
+              <Icon name="favorite" />
+              <Icon name="favorite" className="danger-icon" />
+              <Badge>Children</Badge>
+              <Badge className="danger-badge">Classname</Badge>
+              <Button>Children</Button>
+              <Button className="danger-button">ClassName</Button>
+              <Button type="reset">Type</Button>
+              <Button size="sm">Size</Button>
+              <Button block>Block</Button>
+              <Button square>Square</Button>
+              <OffcanvasHeader>Title</OffcanvasHeader>
+              <Offcanvas title="Offcanvas Title" className="show">
+                Offcanvas content
+              </Offcanvas>
+            </div>
+          </OffcanvasBody>
+        </Offcanvas>
       </div>
     </div>
   );

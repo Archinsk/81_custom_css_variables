@@ -7,6 +7,8 @@ function Offcanvas({
   children,
   className,
   custom,
+  show,
+  position,
   id,
   title,
   noCloseButton,
@@ -18,8 +20,14 @@ function Offcanvas({
   noEffectPoint,
 }) {
   let componentClass = "offcanvas";
+  if (show) {
+    componentClass += " show";
+  }
   if (className) {
     componentClass += ` ${className}`;
+  }
+  if (position) {
+    componentClass += ` offcanvas-${position}`;
   }
   let offcanvasContent;
   if (custom) {

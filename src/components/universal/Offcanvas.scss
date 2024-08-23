@@ -1,20 +1,28 @@
 .offcanvas {
   position: fixed;
   bottom: 0;
-  z-index: var(--offcanvas-zindex);
+  z-index: var(--offcanvas-zindex, 1045);
   display: flex;
   flex-direction: column;
   max-width: 100%;
   color: var(--offcanvas-color);
-  visibility: hidden;
-  background-color: var(--bs-offcanvas-bg);
+  //visibility: hidden;
+  background-color: var(--offcanvas-bg, var(--body-bg));
   background-clip: padding-box;
   outline: 0;
-  transition: var(--bs-offcanvas-transition);
+  //transition: var(--offcanvas-transition);
 
   &.show {
-    visibility: visible;
+    //visibility: visible;
+    transform: none;
   }
+}
+
+.offcanvas-right {
+  top: 0;
+  right: 0;
+  width: var(--offcanvas-width, 25rem);
+  transform: translateX(100%);
 }
 
 .navbar {

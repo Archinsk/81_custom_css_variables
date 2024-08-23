@@ -12,6 +12,7 @@ function Button({
   square,
   icon,
   badge,
+  onClick,
 }) {
   let componentClass = "button";
   if (size && ["sm", "lg"].includes(size)) {
@@ -34,7 +35,7 @@ function Button({
   }
 
   return (
-    <button type={type} className={componentClass}>
+    <button type={type} className={componentClass} onClick={onClick}>
       {icon ? (
         <Icon
           name={typeof icon === "string" ? icon : icon.name}
