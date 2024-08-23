@@ -54,6 +54,11 @@ function App() {
       styleSheetIndex,
       cssRuleObj.property
     );
+    if (cssRuleIndex >= 0) {
+      updateCssRule();
+    } else {
+      createCssRule();
+    }
   }
 
   function changeMode() {
