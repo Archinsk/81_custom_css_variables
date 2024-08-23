@@ -46,6 +46,16 @@ function App() {
     //console.log(document.styleSheets[2].deleteRule(3));
   }
 
+  function changeCssRule(cssRuleObj) {
+    const styleSheetIndex = findStyleSheetIndexByCssSelector(
+      cssRuleObj.selector
+    );
+    const cssRuleIndex = findCssRuleIndexByCssProperty(
+      styleSheetIndex,
+      cssRuleObj.property
+    );
+  }
+
   function changeMode() {
     const lightness = getLightnessFromRgb(
       getComputedStyle(document.body).backgroundColor
@@ -97,9 +107,11 @@ function App() {
           <div class="button" onClick={() => changeTheme("hi-tech")}>
             Hi-tech
           </div>
-          <div class="button" onClick={() => setRightSidebarShow(true)}>
-            Sidebar
-          </div>
+          <Button
+            square
+            icon="menu"
+            onClick={() => setRightSidebarShow(true)}
+          ></Button>
         </div>
       </div>
       <div class="main">
@@ -341,47 +353,161 @@ function App() {
         </div>
 
         <Offcanvas custom show={isRightSidebarShow} position="right">
-          <Button
-            icon="close"
-            square
-            onClick={() => {
-              setRightSidebarShow(false);
-            }}
-          />
+          <div className="offcanvas-header">
+            <div className="offcanvas-title">Settings</div>
+            <Button
+              icon="close"
+              square
+              onClick={() => {
+                setRightSidebarShow(false);
+              }}
+            />
+          </div>
+
           <OffcanvasBody>
             <div class="settings">
-              <input
-                type="range"
-                min="0"
-                max="2.125"
-                step="0.125"
-                onChange={(e) => {
-                  setValue({
-                    selector: '[data-theme="neumorphism"] .button',
-                    property: "borderRadius",
-                    value: e.target.value + "rem",
-                  });
-                }}
-              />
-              <select
-                onChange={(e) => {
-                  setValue({
-                    selector: '[data-theme="neumorphism"]',
-                    property: "--font-family",
-                    value: e.target.value,
-                  });
-                }}
-              >
-                <option value="" disabled>
-                  Choose font
-                </option>
-                <option value="roboto">Roboto</option>
-                <option value="open-sans">OpenSans</option>
-                <option value="inter">Inter</option>
-                <option value="proxima-nova">ProximaNova</option>
-                <option value="nunito">Nunito</option>
-              </select>
-              <input
+              <div>
+                <label for="setting-01">Font family</label>
+                <select
+                  id="setting-01"
+                  className="form-control"
+                  onChange={(e) => {
+                    changeCssRule({
+                      selector: '[data-theme="neumorphism"]',
+                      property: "--font-family",
+                      value: e.target.value,
+                    });
+                  }}
+                >
+                  <option value="" disabled>
+                    Choose font
+                  </option>
+                  <option value="roboto">Roboto</option>
+                  <option value="open-sans">OpenSans</option>
+                  <option value="inter">Inter</option>
+                  <option value="proxima-nova">ProximaNova</option>
+                  <option value="nunito">Nunito</option>
+                </select>
+              </div>
+              <div>
+                <label for="setting-02">Font size</label>
+                <input
+                  id="setting-02"
+                  type="range"
+                  className="form-control"
+                  min="0"
+                  max="2.125"
+                  step="0.125"
+                  onChange={(e) => {
+                    setValue({
+                      selector: '[data-theme="neumorphism"] .button',
+                      property: "borderRadius",
+                      value: e.target.value + "rem",
+                    });
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-03">Lightness</label>
+                <input
+                  id="setting-03"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-04">Saturation</label>
+                <input
+                  id="setting-04"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-05">Hue</label>
+                <input
+                  id="setting-05"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-06">Depth</label>
+                <input
+                  id="setting-06"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-07">Border radius</label>
+                <input
+                  id="setting-07"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-08">Gaps</label>
+                <input
+                  id="setting-08"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-09">Shadow offset</label>
+                <input
+                  id="setting-09"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-10">Shadow opacity</label>
+                <input
+                  id="setting-10"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+              <div>
+                <label for="setting-11">Header hue</label>
+                <input
+                  id="setting-11"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div>
+
+              {/* <input
                 type="color"
                 onChange={(e) => {
                   setValue({
@@ -404,7 +530,7 @@ function App() {
               <OffcanvasHeader>Title</OffcanvasHeader>
               <Offcanvas title="Offcanvas Title" className="show">
                 Offcanvas content
-              </Offcanvas>
+              </Offcanvas> */}
             </div>
           </OffcanvasBody>
         </Offcanvas>
