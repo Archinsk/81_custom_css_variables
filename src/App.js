@@ -498,8 +498,15 @@ function App() {
                   id="setting-03"
                   type="range"
                   className="form-control"
+                  min="10"
+                  max="90"
+                  step="10"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--body-bg-lightness",
+                      value: e.target.value + "%",
+                    });
                   }}
                 />
               </div>
