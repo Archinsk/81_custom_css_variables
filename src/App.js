@@ -74,7 +74,8 @@ function App() {
     if (cssRuleIndex >= 0) {
       updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj);
     } else {
-      createCssRule(styleSheetIndex, cssRuleObj);
+      const newCssRuleCssText = `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}; }`;
+      createCssRule(styleSheetIndex, 0, newCssRuleCssText);
     }
   }
 
@@ -123,20 +124,45 @@ function App() {
 
   function updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj) {
     console.log("update Rule");
-    const cssRule =
+    const newProperty = `${cssRuleObj.property}: ${cssRuleObj.value}`;
+    const updatedCssRuleCssText =
       document.styleSheets[styleSheetIndex].cssRules[cssRuleIndex].cssText;
-    console.log(cssRule);
+    console.log(updatedCssRuleCssText);
+    const updatedPropertyStartIndex = updatedCssRuleCssText.indexOf(
+      cssRuleObj.property
+    );
+    console.log(updatedPropertyStartIndex);
+    const updatedPropertyEndIndex = updatedCssRuleCssText.indexOf(
+      ";",
+      updatedPropertyStartIndex
+    );
+    console.log(updatedPropertyEndIndex);
+    const newCssRuleCssText =
+      updatedCssRuleCssText.slice(0, updatedPropertyStartIndex) +
+      newProperty +
+      updatedCssRuleCssText.slice(updatedPropertyEndIndex);
+    console.log(newCssRuleCssText);
+
+    const newCssRuleObj = {
+      selector: cssRuleObj.selector,
+      property: "",
+      value: newCssRuleCssText,
+    };
+    console.log(cssRuleObj);
+    console.log(newCssRuleObj);
+
     deleteCssRule(styleSheetIndex, cssRuleIndex);
-    createCssRule(styleSheetIndex, cssRuleObj);
+    createCssRule(styleSheetIndex, cssRuleIndex, newCssRuleCssText);
   }
 
-  function createCssRule(styleSheetIndex, cssRuleObj) {
+  function createCssRule(styleSheetIndex, cssRuleIndex, cssRuleCssText) {
     console.log("create Rule");
     console.log(styleSheetIndex);
-    console.log(cssRuleObj);
+    console.log(cssRuleIndex);
+    console.log(cssRuleCssText);
     document.styleSheets[styleSheetIndex].insertRule(
-      `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}; }`,
-      0
+      cssRuleCssText,
+      cssRuleIndex
     );
     console.log(document.styleSheets);
   }
@@ -482,7 +508,7 @@ function App() {
                   className="form-control"
                   min="0.5"
                   max="3.0"
-                  step="0.5"
+                  step="0.25"
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
