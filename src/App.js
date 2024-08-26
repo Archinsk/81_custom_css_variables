@@ -523,10 +523,10 @@ function App() {
                 <input
                   id="setting-03"
                   type="range"
-                  className="form-control"
+                  className="form-range"
                   min="10"
                   max="90"
-                  step="10"
+                  step="5"
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
