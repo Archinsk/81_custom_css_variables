@@ -77,22 +77,9 @@ function App() {
       const newCssRuleCssText = `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}; }`;
       createCssRule(styleSheetIndex, 0, newCssRuleCssText);
     }
-  }
-
-  function setValue(obj) {
-    console.log(obj);
-    console.log(document.styleSheets[2]);
-    console.log(document.styleSheets[2].cssRules[0]);
-    document.styleSheets[2].deleteRule(0);
-    document.styleSheets[2].insertRule(
-      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: ${obj.value}; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); }`,
-      0
-    );
-    /*document.styleSheets[2].insertRule(
-      `[data-theme="neumorphism"] { --body-bg-hue: 220; --body-bg-saturation: 29%; --body-bg-lightness: 92%; --body-hue: 208; --body-saturation: 7%; --body-lightness: 46%; --level-lightness-offset: 3%; --accent-bg-hue: 239; --accent-bg-saturation: 75%; --accent-bg-lightness: 70%; --accent-bg-opacity: 1; --border-radius: 1.125rem; --shadow-size: 0.25rem; --shadow-blur: 0.25rem; --shadow-spread: 0rem; --shadow-opacity: 0.2; --light-opacity: 0.75; --base-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --active-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --accent-bg-color: hsla(\n    var(--accent-bg-hue),\n    var(--accent-bg-saturation),\n    var(--accent-bg-lightness),\n    var(--accent-bg-opacity)\n  ); --accent-color: hsl(0, 0%, 100%); --upper-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) + var(--level-lightness-offset))\n  ); --lower-level-bg-color: hsl(\n    var(--body-bg-hue),\n    var(--body-bg-saturation),\n    calc(var(--body-bg-lightness) - var(--level-lightness-offset))\n  ); --outer-shadow: var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --inner-shadow: inset var(--shadow-size) var(--shadow-size) var(--shadow-blur)\n    var(--shadow-spread) hsla(0, 0%, 0%, var(--shadow-opacity)); --outer-light: calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size))\n    var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --inner-light: inset calc(-1 * var(--shadow-size))\n    calc(-1 * var(--shadow-size)) var(--shadow-blur) var(--shadow-spread)\n    hsla(0, 0%, 100%, var(--light-opacity)); --extruded-shadow: var(--outer-light), var(--outer-shadow); --intruded-shadow: var(--inner-shadow), var(--inner-light); --font-family: ${obj.value};}`,
-      0
-    );*/
-    //console.log(document.styleSheets[2].deleteRule(3));
+    setTimeout(() => {
+      changeMode();
+    }, 0);
   }
 
   function findStyleSheetIndexByCssSelector(selector) {
@@ -177,9 +164,6 @@ function App() {
       <div class="header">
         <div class="header-text">Header</div>
         <div class="buttons-group">
-          <div class="button" onClick={() => changeMode()}>
-            Dark mode
-          </div>
           <div class="button" onClick={() => updateTheme()}>
             Default
           </div>
@@ -200,7 +184,7 @@ function App() {
           </div>
           <Button
             square
-            icon="menu"
+            icon="settings"
             onClick={() => setRightSidebarShow(true)}
           ></Button>
         </div>
@@ -536,14 +520,21 @@ function App() {
                   }}
                 />
               </div>
-              {/* <div>
+              <div>
                 <label for="setting-04">Saturation</label>
                 <input
                   id="setting-04"
                   type="range"
                   className="form-control"
+                  min="-20"
+                  max="100"
+                  step="5"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--body-bg-saturation",
+                      value: e.target.value + "%",
+                    });
                   }}
                 />
               </div>
@@ -553,12 +544,19 @@ function App() {
                   id="setting-05"
                   type="range"
                   className="form-control"
+                  min="0"
+                  max="360"
+                  step="5"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--body-bg-hue",
+                      value: e.target.value,
+                    });
                   }}
                 />
               </div>
-              <div>
+              {/* <div>
                 <label for="setting-06">Depth</label>
                 <input
                   id="setting-06"
@@ -568,19 +566,26 @@ function App() {
                     setValue();
                   }}
                 />
-              </div>
+              </div> */}
               <div>
                 <label for="setting-07">Border radius</label>
                 <input
                   id="setting-07"
                   type="range"
                   className="form-control"
+                  min="0"
+                  max="3"
+                  step="0.25"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--border-radius",
+                      value: e.target.value + "rem",
+                    });
                   }}
                 />
               </div>
-              <div>
+              {/* <div>
                 <label for="setting-08">Gaps</label>
                 <input
                   id="setting-08"
@@ -590,31 +595,45 @@ function App() {
                     setValue();
                   }}
                 />
-              </div>
+              </div> */}
               <div>
                 <label for="setting-09">Shadow offset</label>
                 <input
                   id="setting-09"
                   type="range"
                   className="form-control"
+                  min="0.05"
+                  max="0.5"
+                  step="0.05"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--shadow-offset",
+                      value: e.target.value + "rem",
+                    });
                   }}
                 />
               </div>
               <div>
-                <label for="setting-10">Shadow opacity</label>
+                <label for="setting-10">Shadow blur</label>
                 <input
                   id="setting-10"
                   type="range"
                   className="form-control"
+                  min="0.05"
+                  max="0.5"
+                  step="0.05"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--shadow-blur",
+                      value: e.target.value + "rem",
+                    });
                   }}
                 />
               </div>
-              <div>
-                <label for="setting-11">Header hue</label>
+              {/* <div>
+                <label for="setting-11">Shadow opacity</label>
                 <input
                   id="setting-11"
                   type="range"
@@ -624,18 +643,19 @@ function App() {
                   }}
                 />
               </div> */}
+              {/* <div>
+                <label for="setting-12">Header hue</label>
+                <input
+                  id="setting-12"
+                  type="range"
+                  className="form-control"
+                  onChange={(e) => {
+                    setValue();
+                  }}
+                />
+              </div> */}
 
-              {/* <input
-                type="color"
-                onChange={(e) => {
-                  setValue({
-                    selector: '[data-theme="neumorphism"] .button',
-                    property: "borderRadius",
-                    value: e.target.value + "rem",
-                  });
-                }}
-              />
-              <Icon name="favorite" />
+              {/* <Icon name="favorite" />
               <Icon name="favorite" className="danger-icon" />
               <Badge>Children</Badge>
               <Badge className="danger-badge">Classname</Badge>
