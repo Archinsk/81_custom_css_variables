@@ -22,8 +22,8 @@
 
 @mixin button-square {
   &:not(.button-sm, .button-lg) {
-    width: 2.375rem;
-    height: 2.375rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
   &.button-sm {
     width: 1.9375rem;

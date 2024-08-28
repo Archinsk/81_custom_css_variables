@@ -66,20 +66,40 @@ function App() {
     );
     console.log(styleSheetIndex);
 
-    const cssRuleIndex = findCssRuleIndexByCssProperty(
-      styleSheetIndex,
-      cssRuleObj.property
-    );
-    console.log(cssRuleIndex);
-    if (cssRuleIndex >= 0) {
-      updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj);
+    if (cssRuleObj.declarations) {
+      // вынести в функцию
+      cssRuleObj.declarations.forEach((declaration) => {
+        const cssRuleIndex = findCssRuleIndexByCssProperty(
+          styleSheetIndex,
+          declaration.property
+        );
+        console.log(cssRuleIndex);
+        if (cssRuleIndex >= 0) {
+          updateCssRule(styleSheetIndex, cssRuleIndex, declaration);
+        } else {
+          const newCssRuleCssText = `${cssRuleObj.selector} { ${declaration.property}: ${declaration.value}${declaration.unit || ""}; }`;
+          createCssRule(styleSheetIndex, 0, newCssRuleCssText);
+        }
+        setTimeout(() => {
+          changeMode();
+        }, 100);
+      });
     } else {
-      const newCssRuleCssText = `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}; }`;
-      createCssRule(styleSheetIndex, 0, newCssRuleCssText);
+      const cssRuleIndex = findCssRuleIndexByCssProperty(
+        styleSheetIndex,
+        cssRuleObj.property
+      );
+      console.log(cssRuleIndex);
+      if (cssRuleIndex >= 0) {
+        updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj);
+      } else {
+        const newCssRuleCssText = `${cssRuleObj.selector} { ${cssRuleObj.property}: ${cssRuleObj.value}${cssRuleObj.unit || ""}; }`;
+        createCssRule(styleSheetIndex, 0, newCssRuleCssText);
+      }
+      setTimeout(() => {
+        changeMode();
+      }, 100);
     }
-    setTimeout(() => {
-      changeMode();
-    }, 0);
   }
 
   function findStyleSheetIndexByCssSelector(selector) {
@@ -111,10 +131,11 @@ function App() {
 
   function updateCssRule(styleSheetIndex, cssRuleIndex, cssRuleObj) {
     console.log("update Rule");
-    const newProperty = `${cssRuleObj.property}: ${cssRuleObj.value}`;
+    const newProperty = `${cssRuleObj.property}: ${cssRuleObj.value}${cssRuleObj.unit || ""}`;
     const updatedCssRuleCssText =
       document.styleSheets[styleSheetIndex].cssRules[cssRuleIndex].cssText;
     console.log(updatedCssRuleCssText);
+    console.log(cssRuleObj.property);
     const updatedPropertyStartIndex = updatedCssRuleCssText.indexOf(
       cssRuleObj.property
     );
@@ -497,7 +518,8 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--body-font-size",
-                      value: e.target.value + "rem",
+                      value: e.target.value,
+                      unit: "rem",
                     });
                   }}
                 />
@@ -515,7 +537,8 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--body-bg-lightness",
-                      value: e.target.value + "%",
+                      value: e.target.value,
+                      unit: "%",
                     });
                   }}
                 />
@@ -533,7 +556,8 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--body-bg-saturation",
-                      value: e.target.value + "%",
+                      value: e.target.value,
+                      unit: "%",
                     });
                   }}
                 />
@@ -580,22 +604,41 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--border-radius",
-                      value: e.target.value + "rem",
+                      value: e.target.value,
+                      unit: "rem",
                     });
                   }}
                 />
               </div>
-              {/* <div>
+              <div>
                 <label for="setting-08">Gaps</label>
                 <input
                   id="setting-08"
                   type="range"
                   className="form-control"
+                  min="0"
+                  max="3"
+                  step="0.25"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      declarations: [
+                        { property: "--margin", value: e.target.value + "rem" },
+                        {
+                          property: "--padding",
+                          value: e.target.value,
+                          unit: "rem",
+                        },
+                        {
+                          property: "--gap",
+                          value: (e.target.value * 2) / 3,
+                          unit: "rem",
+                        },
+                      ],
+                    });
                   }}
                 />
-              </div> */}
+              </div>
               <div>
                 <label for="setting-09">Shadow offset</label>
                 <input
@@ -609,7 +652,8 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--shadow-offset",
-                      value: e.target.value + "rem",
+                      value: e.target.value,
+                      unit: "rem",
                     });
                   }}
                 />
@@ -627,22 +671,30 @@ function App() {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
                       property: "--shadow-blur",
-                      value: e.target.value + "rem",
+                      value: e.target.value,
+                      unit: "rem",
                     });
                   }}
                 />
               </div>
-              {/* <div>
+              <div>
                 <label for="setting-11">Shadow opacity</label>
                 <input
                   id="setting-11"
                   type="range"
                   className="form-control"
+                  min="0"
+                  max="1"
+                  step="0.1"
                   onChange={(e) => {
-                    setValue();
+                    changeCssRule({
+                      selector: `[data-theme="${theme}"]`,
+                      property: "--shadow-intencity",
+                      value: e.target.value,
+                    });
                   }}
                 />
-              </div> */}
+              </div>
               {/* <div>
                 <label for="setting-12">Header hue</label>
                 <input
