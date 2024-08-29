@@ -20,19 +20,17 @@
   --muted-color-lightness: calc(var(--body-color-lightness) + 5%);
   --muted-color-opacity: 1;
 
-  --body-font-family: roboto;
-  --body-font-size: 1rem;
-  --body-font-weight: normal;
-  --body-line-height: 1.5;
+  --font-family: roboto;
+  --font-size: 1rem;
+  --font-weight: normal;
+  --line-height: 1.5;
 
   --gap: 1rem;
   --padding: 1rem;
   --margin: 1rem;
 
-  --button-height: 2.25rem;
-  --button-padding-y: calc(
-    (var(--button-height) - var(--body-font-size) * var(--body-line-height)) / 2
-  );
+  /*--button-height: 2.25rem;*/
+  --button-padding-y: 0.375em;
   --border-radius: 0;
   --sidebar-width: 25%;
 
@@ -100,22 +98,23 @@ body {
   margin: 0;
   background-color: var(--body-bg);
   color: var(--body-color);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size);
-  font-weight: var(--body-font-weight);
-  line-height: var(--body-line-height);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
 }
 
 .icon {
   font-family: material-icons;
-  font-size: calc(var(--body-font-size) * 1.25);
+  font-size: calc(var(--font-size) * 1.25);
 }
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);
+  /* 
+  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);*/
   background-color: var(--button-bg);
   height: var(--button-height);
   border-radius: var(--border-radius);
@@ -141,7 +140,7 @@ body {
 }
 
 .header-text {
-  font-size: calc(var(--body-font-size) * 1.5);
+  font-size: calc(var(--font-size) * 1.5);
   font-weight: bold;
 }
 
@@ -224,7 +223,7 @@ body {
 }
 
 .item-property-name {
-  font-size: calc(var(--body-font-size) * 0.875);
+  font-size: calc(var(--font-size) * 0.875);
   color: var(--muted-color);
 }
 

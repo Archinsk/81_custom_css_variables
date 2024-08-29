@@ -10,6 +10,8 @@ import OffcanvasBody from "./components/universal/OffcanvasBody";
 function App() {
   const [isRightSidebarShow, setRightSidebarShow] = useState(false);
   const [theme, setTheme] = useState(null);
+  const [activeSidebarItemIndex, setActiveSidebarItemIndex] = useState(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(null);
 
   function changeVar(customVar, increaseValue) {
     const value = getComputedStyle(document.documentElement).getPropertyValue(
@@ -182,25 +184,25 @@ function App() {
 
   return (
     <div className="app">
-      <div class="header">
-        <div class="header-text">Header</div>
-        <div class="buttons-group">
-          <div class="button" onClick={() => updateTheme()}>
+      <div className="header">
+        <div className="header-text">Header</div>
+        <div className="buttons-group">
+          <div className="button" onClick={() => updateTheme()}>
             Default
           </div>
-          <div class="button" onClick={() => updateTheme("neumorphism")}>
+          <div className="button" onClick={() => updateTheme("neumorphism")}>
             Neumorphism
           </div>
-          <div class="button" onClick={() => updateTheme("glassmorphism")}>
+          <div className="button" onClick={() => updateTheme("glassmorphism")}>
             Glassmorphism
           </div>
-          <div class="button" onClick={() => updateTheme("claymorphism")}>
+          <div className="button" onClick={() => updateTheme("claymorphism")}>
             Claymorphism
           </div>
-          <div class="button" onClick={() => updateTheme("retrofuturism")}>
+          <div className="button" onClick={() => updateTheme("retrofuturism")}>
             Retrofuturism
           </div>
-          <div class="button" onClick={() => updateTheme("hi-tech")}>
+          <div className="button" onClick={() => updateTheme("hi-tech")}>
             Hi-tech
           </div>
           <Button
@@ -210,20 +212,20 @@ function App() {
           ></Button>
         </div>
       </div>
-      <div class="main">
-        <div class="sidebar-container">
-          <div class="buttons-group">
+      <div className="main">
+        <div className="sidebar-container">
+          <div className="buttons-group">
             <div
-              class="button"
+              className="button"
               onClick={() => {
                 changeVar("--body-bg-hue", -10);
               }}
             >
               Button 1
             </div>
-            <div class="button">Button 2</div>
+            <div className="button">Button 2</div>
             <div
-              class="button"
+              className="button"
               onClick={() => {
                 changeVar("--body-bg-hue", 10);
               }}
@@ -231,217 +233,257 @@ function App() {
               Button 3
             </div>
           </div>
-          <div class="sidebar">
-            <div class="sidebar-item active">
-              <div class="buttons-group">
-                <div class="button">
-                  <span class="icon">content_copy</span>
+          <div className="sidebar">
+            <div
+              className={`sidebar-item ${activeSidebarItemIndex === 0 && "active"}`}
+              onClick={() => {
+                setActiveSidebarItemIndex(0);
+              }}
+            >
+              <div className="buttons-group">
+                <div className="button">
+                  <span className="icon">content_copy</span>
                 </div>
-                <div class="button">
-                  <span class="icon">edit</span>
+                <div className="button">
+                  <span className="icon">edit</span>
                 </div>
-                <div class="button">
-                  <span class="icon">delete</span>
+                <div className="button">
+                  <span className="icon">delete</span>
                 </div>
               </div>
-              <div class="sidebar-item-text">Sidebar-item-01</div>
+              <div className="sidebar-item-text">Sidebar-item-01</div>
             </div>
-            <div class="sidebar-item">
-              <div class="buttons-group">
-                <div class="button">
-                  <span class="icon">content_copy</span>
+            <div
+              className={`sidebar-item ${activeSidebarItemIndex === 1 && "active"}`}
+              onClick={() => {
+                setActiveSidebarItemIndex(1);
+              }}
+            >
+              <div className="buttons-group">
+                <div className="button">
+                  <span className="icon">content_copy</span>
                 </div>
-                <div class="button">
-                  <span class="icon">edit</span>
+                <div className="button">
+                  <span className="icon">edit</span>
                 </div>
-                <div class="button">
-                  <span class="icon">delete</span>
+                <div className="button">
+                  <span className="icon">delete</span>
                 </div>
               </div>
-              <div class="sidebar-item-text">Sidebar-item-02</div>
+              <div className="sidebar-item-text">Sidebar-item-02</div>
             </div>
-            <div class="sidebar-item">
-              <div class="buttons-group">
-                <div class="button">
-                  <span class="icon">content_copy</span>
+            <div
+              className={`sidebar-item ${activeSidebarItemIndex === 2 && "active"}`}
+              onClick={() => {
+                setActiveSidebarItemIndex(2);
+              }}
+            >
+              <div className="buttons-group">
+                <div className="button">
+                  <span className="icon">content_copy</span>
                 </div>
-                <div class="button">
-                  <span class="icon">edit</span>
+                <div className="button">
+                  <span className="icon">edit</span>
                 </div>
-                <div class="button">
-                  <span class="icon">delete</span>
+                <div className="button">
+                  <span className="icon">delete</span>
                 </div>
               </div>
-              <div class="sidebar-item-text">Sidebar-item-03</div>
+              <div className="sidebar-item-text">Sidebar-item-03</div>
             </div>
-            <div class="sidebar-item">
-              <div class="buttons-group">
-                <div class="button">
-                  <span class="icon">content_copy</span>
+            <div
+              className={`sidebar-item ${activeSidebarItemIndex === 3 && "active"}`}
+              onClick={() => {
+                setActiveSidebarItemIndex(3);
+              }}
+            >
+              <div className="buttons-group">
+                <div className="button">
+                  <span className="icon">content_copy</span>
                 </div>
-                <div class="button">
-                  <span class="icon">edit</span>
+                <div className="button">
+                  <span className="icon">edit</span>
                 </div>
-                <div class="button">
-                  <span class="icon">delete</span>
+                <div className="button">
+                  <span className="icon">delete</span>
                 </div>
               </div>
-              <div class="sidebar-item-text">Sidebar-item-04</div>
+              <div className="sidebar-item-text">Sidebar-item-04</div>
             </div>
           </div>
         </div>
-        <div class="card-list-container">
-          <div class="buttons-group">
-            <div class="button">Button 4</div>
-            <div class="button">Button 5</div>
-            <div class="button">Button 6</div>
+        <div className="card-list-container">
+          <div className="buttons-group">
+            <div className="button">Button 4</div>
+            <div className="button">Button 5</div>
+            <div className="button">Button 6</div>
           </div>
-          <div class="card-list">
-            <div class="card active">
-              <div class="card-header">
-                <div class="buttons-group">
-                  <div class="button">
-                    <span class="icon">content_copy</span>
+          <div className="card-list">
+            <div
+              className={`card ${activeCardIndex === 0 && "active"}`}
+              onClick={() => {
+                setActiveCardIndex(0);
+              }}
+            >
+              <div className="card-header">
+                <div className="buttons-group">
+                  <div className="button">
+                    <span className="icon">content_copy</span>
                   </div>
-                  <div class="button">
-                    <span class="icon">edit</span>
+                  <div className="button">
+                    <span className="icon">edit</span>
                   </div>
-                  <div class="button">
-                    <span class="icon">delete</span>
+                  <div className="button">
+                    <span className="icon">delete</span>
                   </div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Card-name-01</div>
-                  <div class="item-property-value">Card-title-01</div>
+                <div className="item-property">
+                  <div className="item-property-name">Card-name-01</div>
+                  <div className="item-property-value">Card-title-01</div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="item-property">
-                  <div class="item-property-name">Property-1</div>
-                  <div class="item-property-value">Value-1</div>
+              <div className="card-body">
+                <div className="item-property">
+                  <div className="item-property-name">Property-1</div>
+                  <div className="item-property-value">Value-1</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-2</div>
-                  <div class="item-property-value">Value-2</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-2</div>
+                  <div className="item-property-value">Value-2</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-3</div>
-                  <div class="item-property-value">Value-3</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-3</div>
+                  <div className="item-property-value">Value-3</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-4</div>
-                  <div class="item-property-value">Value-4</div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <div class="item-property">
-                  <div class="item-property-name">Card-name-02</div>
-                  <div class="item-property-value">Card-title-02</div>
-                </div>
-                <div class="buttons-group">
-                  <div class="button">
-                    <span class="icon">content_copy</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">edit</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">delete</span>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="item-property">
-                  <div class="item-property-name">Property-1</div>
-                  <div class="item-property-value">Value-1</div>
-                </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-2</div>
-                  <div class="item-property-value">Value-2</div>
-                </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-3</div>
-                  <div class="item-property-value">Value-3</div>
-                </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-4</div>
-                  <div class="item-property-value">Value-4</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-4</div>
+                  <div className="item-property-value">Value-4</div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header">
-                <div class="item-property">
-                  <div class="item-property-name">Card-name-03</div>
-                  <div class="item-property-value">Card-title-03</div>
+            <div
+              className={`card ${activeCardIndex === 1 && "active"}`}
+              onClick={() => {
+                setActiveCardIndex(1);
+              }}
+            >
+              <div className="card-header">
+                <div className="buttons-group">
+                  <div className="button">
+                    <span className="icon">content_copy</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">edit</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">delete</span>
+                  </div>
                 </div>
-                <div class="buttons-group">
-                  <div class="button">
-                    <span class="icon">content_copy</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">edit</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">delete</span>
-                  </div>
+                <div className="item-property">
+                  <div className="item-property-name">Card-name-02</div>
+                  <div className="item-property-value">Card-title-02</div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="item-property">
-                  <div class="item-property-name">Property-1</div>
-                  <div class="item-property-value">Value-1</div>
+              <div className="card-body">
+                <div className="item-property">
+                  <div className="item-property-name">Property-1</div>
+                  <div className="item-property-value">Value-1</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-2</div>
-                  <div class="item-property-value">Value-2</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-2</div>
+                  <div className="item-property-value">Value-2</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-3</div>
-                  <div class="item-property-value">Value-3</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-3</div>
+                  <div className="item-property-value">Value-3</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-4</div>
-                  <div class="item-property-value">Value-4</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-4</div>
+                  <div className="item-property-value">Value-4</div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header">
-                <div class="item-property">
-                  <div class="item-property-name">Card-name-04</div>
-                  <div class="item-property-value">Card-title-04</div>
+            <div
+              className={`card ${activeCardIndex === 2 && "active"}`}
+              onClick={() => {
+                setActiveCardIndex(2);
+              }}
+            >
+              <div className="card-header">
+                <div className="buttons-group">
+                  <div className="button">
+                    <span className="icon">content_copy</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">edit</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">delete</span>
+                  </div>
                 </div>
-                <div class="buttons-group">
-                  <div class="button">
-                    <span class="icon">content_copy</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">edit</span>
-                  </div>
-                  <div class="button">
-                    <span class="icon">delete</span>
-                  </div>
+                <div className="item-property">
+                  <div className="item-property-name">Card-name-03</div>
+                  <div className="item-property-value">Card-title-03</div>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="item-property">
-                  <div class="item-property-name">Property-1</div>
-                  <div class="item-property-value">Value-1</div>
+              <div className="card-body">
+                <div className="item-property">
+                  <div className="item-property-name">Property-1</div>
+                  <div className="item-property-value">Value-1</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-2</div>
-                  <div class="item-property-value">Value-2</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-2</div>
+                  <div className="item-property-value">Value-2</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-3</div>
-                  <div class="item-property-value">Value-3</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-3</div>
+                  <div className="item-property-value">Value-3</div>
                 </div>
-                <div class="item-property">
-                  <div class="item-property-name">Property-4</div>
-                  <div class="item-property-value">Value-4</div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-4</div>
+                  <div className="item-property-value">Value-4</div>
+                </div>
+              </div>
+            </div>
+            <div
+              className={`card ${activeCardIndex === 3 && "active"}`}
+              onClick={() => {
+                setActiveCardIndex(3);
+              }}
+            >
+              <div className="card-header">
+                <div className="buttons-group">
+                  <div className="button">
+                    <span className="icon">content_copy</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">edit</span>
+                  </div>
+                  <div className="button">
+                    <span className="icon">delete</span>
+                  </div>
+                </div>
+                <div className="item-property">
+                  <div className="item-property-name">Card-name-04</div>
+                  <div className="item-property-value">Card-title-04</div>
+                </div>
+              </div>
+              <div className="card-body">
+                <div className="item-property">
+                  <div className="item-property-name">Property-1</div>
+                  <div className="item-property-value">Value-1</div>
+                </div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-2</div>
+                  <div className="item-property-value">Value-2</div>
+                </div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-3</div>
+                  <div className="item-property-value">Value-3</div>
+                </div>
+                <div className="item-property">
+                  <div className="item-property-name">Property-4</div>
+                  <div className="item-property-value">Value-4</div>
                 </div>
               </div>
             </div>
@@ -461,9 +503,9 @@ function App() {
           </div>
 
           <OffcanvasBody>
-            <div class="settings">
+            <div className="settings">
               <div>
-                <label for="setting-01">Theme</label>
+                <label htmlFor="setting-01">Theme</label>
                 <select
                   id="setting-00"
                   className="form-control"
@@ -483,14 +525,14 @@ function App() {
                 </select>
               </div>
               <div>
-                <label for="setting-01">Font family</label>
+                <label htmlFor="setting-01">Font family</label>
                 <select
                   id="setting-01"
                   className="form-control"
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
-                      property: "--body-font-family",
+                      property: "--font-family",
                       value: e.target.value,
                     });
                   }}
@@ -506,7 +548,7 @@ function App() {
                 </select>
               </div>
               <div>
-                <label for="setting-02">Font size</label>
+                <label htmlFor="setting-02">Font size</label>
                 <input
                   id="setting-02"
                   type="range"
@@ -517,7 +559,7 @@ function App() {
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
-                      property: "--body-font-size",
+                      property: "--font-size",
                       value: e.target.value,
                       unit: "rem",
                     });
@@ -525,7 +567,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-03">Lightness</label>
+                <label htmlFor="setting-03">Lightness</label>
                 <input
                   id="setting-03"
                   type="range"
@@ -544,7 +586,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-04">Saturation</label>
+                <label htmlFor="setting-04">Saturation</label>
                 <input
                   id="setting-04"
                   type="range"
@@ -563,7 +605,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-05">Hue</label>
+                <label htmlFor="setting-05">Hue</label>
                 <input
                   id="setting-05"
                   type="range"
@@ -581,7 +623,7 @@ function App() {
                 />
               </div>
               {/* <div>
-                <label for="setting-06">Depth</label>
+                <label htmlFor="setting-06">Depth</label>
                 <input
                   id="setting-06"
                   type="range"
@@ -592,7 +634,7 @@ function App() {
                 />
               </div> */}
               <div>
-                <label for="setting-07">Border radius</label>
+                <label htmlFor="setting-07">Border radius</label>
                 <input
                   id="setting-07"
                   type="range"
@@ -611,7 +653,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-08">Gaps</label>
+                <label htmlFor="setting-08">Gaps</label>
                 <input
                   id="setting-08"
                   type="range"
@@ -640,7 +682,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-09">Shadow offset</label>
+                <label htmlFor="setting-09">Shadow offset</label>
                 <input
                   id="setting-09"
                   type="range"
@@ -659,7 +701,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-10">Shadow blur</label>
+                <label htmlFor="setting-10">Shadow blur</label>
                 <input
                   id="setting-10"
                   type="range"
@@ -678,7 +720,7 @@ function App() {
                 />
               </div>
               <div>
-                <label for="setting-11">Shadow opacity</label>
+                <label htmlFor="setting-11">Shadow opacity</label>
                 <input
                   id="setting-11"
                   type="range"
@@ -696,7 +738,7 @@ function App() {
                 />
               </div>
               {/* <div>
-                <label for="setting-12">Header hue</label>
+                <label htmlFor="setting-12">Header hue</label>
                 <input
                   id="setting-12"
                   type="range"

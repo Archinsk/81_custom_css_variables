@@ -35,6 +35,7 @@
   --active-bg-opacity: 1;
 
   --border-radius: 0.375rem;
+  --border-width: 0.0625rem;
 
   --base-bg: hsla(
     var(--base-bg-hue),
@@ -158,6 +159,22 @@
           .button {
             background-color: var(--accent-color);
             border-radius: calc(var(--border-radius) * 2 / 3);
+          }
+        }
+
+        &:not(.active) {
+          .card-header {
+            position: relative;
+
+            ::after {
+              position: absolute;
+              content: "";
+              height: var(--border-width);
+              background-color: var(--body-color);
+              bottom: 0;
+              left: var(--padding);
+              right: var(--padding);
+            }
           }
         }
       }
