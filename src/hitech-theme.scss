@@ -1,10 +1,10 @@
 [data-theme="hi-tech"] {
-  --body-bg-hue: 187;
-  --body-bg-saturation: 78%;
-  --body-bg-lightness: 86%;
-  --body-color-hue: 208;
-  --body-color-saturation: 7%;
-  --body-color-lightness: 46%;
+  --bg-hue: 187;
+  --bg-saturation: 78%;
+  --bg-lightness: 86%;
+  --color-hue: 208;
+  --color-saturation: 7%;
+  --color-lightness: 46%;
   --accent-bg-hue: 72;
   --accent-bg-saturation: 3%;
   --accent-bg-lightness: 35%;
@@ -36,6 +36,11 @@
 
   --border-radius: 0.375rem;
   --border-width: 0.0625rem;
+
+  --shadow-offset: 0;
+  --shadow-blur: 3rem;
+  --shadow-spread: 0.25rem;
+  --shadow-opacity: 0.75;
 
   --base-bg: hsla(
     var(--base-bg-hue),
@@ -72,13 +77,32 @@
     var(--button-bg-opacity)
   );
 
+  --shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur)
+    var(--shadow-spread)
+    hsla(
+      var(--color-hue),
+      var(--color-saturation),
+      var(--color-lightness),
+      calc(var(--shadow-opacity) * 2 / 3)
+    );
+
+  --shadow-active: var(--shadow-offset) var(--shadow-offset)
+    calc(var(--shadow-blur) * 10 / 48) calc(var(--shadow-spread) * 0.5)
+    hsla(
+      var(--active-bg-hue),
+      var(--active-bg-saturation),
+      var(--active-bg-lightness),
+      calc(var(--shadow-opacity) * 2 / 3)
+    );
+
   .button {
+    --button-border-width: 0rem;
   }
 
   .header {
     .button {
       background-color: var(--active-bg);
-      color: var(--body-color);
+      color: var(--color);
     }
   }
 
@@ -93,8 +117,10 @@
       gap: 0;
 
       .sidebar-item {
-        padding: calc(var(--padding) * 0.5) calc(var(--padding) * 0.5)
-          calc(var(--padding) * 0.5) var(--padding);
+        padding: calc(var(--padding) * 0.5 - var(--border-width))
+          calc(var(--padding) * 0.5 - var(--border-width))
+          calc(var(--padding) * 0.5 - var(--border-width))
+          calc(var(--padding) - var(--border-width));
 
         .buttons-group {
           gap: calc(var(--gap) * 0.5);
@@ -106,8 +132,9 @@
 
         &.active {
           background-color: var(--active-bg);
+          border: var(--border-width) solid var(--accent-color);
           border-radius: var(--border-radius);
-          // box-shadow: var(--intruded-shadow);
+          box-shadow: var(--shadow-active);
 
           .button {
             background-color: var(--accent-color);
@@ -116,6 +143,7 @@
         }
 
         &:not(.active) {
+          --border-width: 0rem;
           background-color: transparent;
         }
       }
@@ -149,8 +177,9 @@
         }
 
         &.active {
-          // box-shadow: var(--intruded-shadow);
           background-color: var(--accent-color);
+          box-shadow: var(--shadow);
+          z-index: 0;
 
           .card-header {
             background-color: var(--active-bg);
@@ -170,7 +199,7 @@
               position: absolute;
               content: "";
               height: var(--border-width);
-              background-color: var(--body-color);
+              background-color: var(--color);
               bottom: 0;
               left: var(--padding);
               right: var(--padding);

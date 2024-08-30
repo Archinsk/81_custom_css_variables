@@ -1,10 +1,10 @@
 [data-theme="retrofuturism"] {
-  --body-bg-hue: 266;
-  --body-bg-saturation: 74%;
-  --body-bg-lightness: 26%;
-  --body-color-hue: 0;
-  --body-color-saturation: 0%;
-  --body-color-lightness: 100%;
+  --bg-hue: 266;
+  --bg-saturation: 74%;
+  --bg-lightness: 26%;
+  --color-hue: 0;
+  --color-saturation: 0%;
+  --color-lightness: 100%;
   --accent-bg-hue: 0;
   --accent-bg-saturation: 0%;
   --accent-bg-lightness: 0%;
@@ -149,7 +149,7 @@
 
           .button {
             background-color: var(--button-bg);
-            color: var(--body-color);
+            color: var(--color);
           }
         }
 

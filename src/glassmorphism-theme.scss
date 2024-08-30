@@ -1,10 +1,10 @@
 [data-theme="glassmorphism"] {
-  --body-bg-hue: 302;
-  --body-bg-saturation: 59%;
-  --body-bg-lightness: 65%;
-  --body-color-hue: 0;
-  --body-color-saturation: 0%;
-  --body-color-lightness: 100%;
+  --bg-hue: 302;
+  --bg-saturation: 59%;
+  --bg-lightness: 65%;
+  --color-hue: 0;
+  --color-saturation: 0%;
+  --color-lightness: 100%;
   --accent-bg-hue: 265;
   --accent-bg-saturation: 60%;
   --accent-bg-lightness: 60%;
@@ -58,9 +58,9 @@
   );
 
   --muted-color: hsl(
-    var(--body-color-hue),
-    var(--body-color-saturation),
-    calc(var(--body-color-lightness) - 10%)
+    var(--color-hue),
+    var(--color-saturation),
+    calc(var(--color-lightness) - 10%)
   );
 
   --outer-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur)
@@ -70,13 +70,13 @@
     hsla(var(--shadow-color-hsl), var(--shadow-opacity));
 
   .button {
-    background-color: var(--body-color);
+    background-color: var(--color);
     color: var(--accent-bg);
   }
 
   .header {
     .button {
-      background-color: var(--body-color);
+      background-color: var(--color);
       color: var(--accent-bg);
     }
   }

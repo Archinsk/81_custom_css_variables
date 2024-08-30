@@ -1,23 +1,23 @@
 // В этом файле желательно избегать глубокой вложенности, чтобы не присваивать свойствам высокий приоритет
 
 :root {
-  --body-bg-hue: 0;
-  --body-bg-saturation: 0%;
-  --body-bg-lightness: 80%;
-  --body-color-hue: 0;
-  --body-color-saturation: 0%;
-  --body-color-lightness: 50%;
-  --accent-bg-hue: var(--body-bg-hue);
-  --accent-bg-saturation: var(--body-bg-saturation);
-  --accent-bg-lightness: calc(var(--body-bg-lightness) - 20%);
+  --bg-hue: 0;
+  --bg-saturation: 0%;
+  --bg-lightness: 80%;
+  --color-hue: 0;
+  --color-saturation: 0%;
+  --color-lightness: 50%;
+  --accent-bg-hue: var(--bg-hue);
+  --accent-bg-saturation: var(--bg-saturation);
+  --accent-bg-lightness: calc(var(--bg-lightness) - 20%);
   --accent-bg-opacity: 1;
   --accent-color-hue: 0;
   --accent-color-saturation: 0%;
   --accent-color-lightness: 100%;
   --accent-color-opacity: 1;
-  --muted-color-hue: var(--body-color-hue);
-  --muted-color-saturation: var(--body-color-saturation);
-  --muted-color-lightness: calc(var(--body-color-lightness) + 5%);
+  --muted-color-hue: var(--color-hue);
+  --muted-color-saturation: var(--color-saturation);
+  --muted-color-lightness: calc(var(--color-lightness) + 5%);
   --muted-color-opacity: 1;
 
   --font-family: roboto;
@@ -34,22 +34,18 @@
   --border-radius: 0;
   --sidebar-width: 25%;
 
-  --body-bg: hsl(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    var(--body-bg-lightness)
-  );
+  --bg: hsl(var(--bg-hue), var(--bg-saturation), var(--bg-lightness));
 
-  --body-color: hsl(
-    var(--body-color-hue),
-    var(--body-color-saturation),
-    var(--body-color-lightness)
+  --color: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-lightness)
   );
 
   --base-bg: hsla(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) + 10%),
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) + 10%),
     1
   );
 
@@ -68,16 +64,16 @@
   );
 
   --button-bg: hsla(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) + 5%),
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) + 5%),
     1
   );
 
   --active-bg: hsla(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) - 10%),
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) - 10%),
     1
   );
 
@@ -96,8 +92,8 @@
 
 body {
   margin: 0;
-  background-color: var(--body-bg);
-  color: var(--body-color);
+  background-color: var(--bg);
+  color: var(--color);
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
@@ -268,7 +264,7 @@ label {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--body-color);
+  color: var(--color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

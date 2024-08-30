@@ -1,17 +1,17 @@
 [data-theme="neumorphism"] {
-  --body-bg-hue: 220;
-  --body-bg-saturation: 30%;
-  --body-bg-lightness: 90%;
-  --body-color-hue: calc(var(--body-bg-hue) - 10);
-  --body-color-saturation: calc(var(--body-bg-saturation) - 20%);
-  --body-color-lightness: calc(var(--body-bg-lightness) - 45%);
+  --bg-hue: 220;
+  --bg-saturation: 30%;
+  --bg-lightness: 90%;
+  --color-hue: calc(var(--bg-hue) - 10);
+  --color-saturation: calc(var(--bg-saturation) - 20%);
+  --color-lightness: calc(var(--bg-lightness) - 45%);
 
   --level-lightness-offset: 3%;
-  --accent-bg-hue: calc(var(--body-bg-hue) + 20);
-  --accent-bg-saturation: calc(var(--body-bg-saturation) + 20%);
-  --accent-bg-lightness: calc(var(--body-bg-lightness) - 20%);
+  --accent-bg-hue: calc(var(--bg-hue) + 20);
+  --accent-bg-saturation: calc(var(--bg-saturation) + 20%);
+  --accent-bg-lightness: calc(var(--bg-lightness) - 20%);
   --accent-bg-lightness: calc(
-    var(--body-bg-lightness) - var(--level-lightness-offset) * 7
+    var(--bg-lightness) - var(--level-lightness-offset) * 7
   );
   --accent-bg-opacity: 1;
 
@@ -28,41 +28,41 @@
   --shadow-spread-xxs: calc(var(--shadow-spread) * 0.125);
   --shadow-intencity: 1;
   --shadow-opacity: calc(
-    (45% - var(--body-bg-lightness) * 0.4) * var(--shadow-intencity)
+    (45% - var(--bg-lightness) * 0.4) * var(--shadow-intencity)
   );
   --shadow-opacity-sm: calc(var(--shadow-opacity) * 0.75);
   --shadow-opacity-xs: calc(var(--shadow-opacity) * 0.25); // 0.25 или 0.5
   --shadow-opacity-xxl: calc(var(--shadow-opacity) * 2);
   --shadow-opacity-lg: calc(var(--shadow-opacity) * 1.25);
   --light-opacity: calc(
-    (5% + var(--body-bg-lightness) * 0.4) * var(--shadow-intencity)
+    (5% + var(--bg-lightness) * 0.4) * var(--shadow-intencity)
   );
   --light-opacity-xs: calc(var(--light-opacity) * 0.5); // 0.25 или 0.5
 
   --accent-color: var(--upper-level-bg);
 
   --active-bg: hsl(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) - var(--level-lightness-offset))
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) - var(--level-lightness-offset))
   );
 
   --upper-level-bg: hsl(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) + var(--level-lightness-offset))
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) + var(--level-lightness-offset))
   );
 
   --lower-level-bg: hsl(
-    var(--body-bg-hue),
-    var(--body-bg-saturation),
-    calc(var(--body-bg-lightness) - var(--level-lightness-offset))
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) - var(--level-lightness-offset))
   );
 
   --muted-color: hsl(
-    var(--body-color-hue),
-    var(--body-color-saturation),
-    calc(var(--body-color-lightness) + 15%)
+    var(--color-hue),
+    var(--color-saturation),
+    calc(var(--color-lightness) + 15%)
   );
 
   --outer-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) 0
@@ -102,14 +102,14 @@
     var(--inner-light-lg);
 
   &[data-mode="dark"] {
-    --body-color-lightness: calc(var(--body-bg-lightness) + 45%);
+    --color-lightness: calc(var(--bg-lightness) + 45%);
     --muted-color: hsl(
-      var(--body-color-hue),
-      var(--body-color-saturation),
-      calc(var(--body-color-lightness) - 15%)
+      var(--color-hue),
+      var(--color-saturation),
+      calc(var(--color-lightness) - 15%)
     );
-    --accent-bg-lightness: calc(var(--body-bg-lightness) + 20%);
-    --accent-bg-lightness: calc(var(--body-color-lightness));
+    --accent-bg-lightness: calc(var(--bg-lightness) + 20%);
+    --accent-bg-lightness: calc(var(--color-lightness));
   }
 
   .button {
@@ -122,7 +122,7 @@
     }
 
     .button {
-      color: var(--body-color);
+      color: var(--color);
       background-color: var(--upper-level-bg);
     }
   }
@@ -145,7 +145,7 @@
 
       .sidebar-item {
         &.active {
-          background-color: var(--body-bg);
+          background-color: var(--bg);
           margin-left: var(--margin);
           margin-right: var(--margin);
           border-radius: var(--border-radius);
@@ -197,7 +197,7 @@
           box-shadow: var(--intruded-shadow);
 
           .button {
-            background-color: var(--body-bg);
+            background-color: var(--bg);
           }
         }
 

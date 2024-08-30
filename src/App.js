@@ -190,23 +190,17 @@ function App() {
     return (
       <div
         key={index}
-        className={`sidebar-item ${activeSidebarItemIndex === index && "active"}`}
+        className={`sidebar-item ${activeSidebarItemIndex === index ? "active" : ""}`}
         onClick={() => {
           setActiveSidebarItemIndex(index);
         }}
       >
         <div className="buttons-group">
-          <div className="button">
-            <span className="icon">content_copy</span>
-          </div>
-          <div className="button">
-            <span className="icon">edit</span>
-          </div>
-          <div className="button">
-            <span className="icon">delete</span>
-          </div>
+          <Button square icon="content_copy" />
+          <Button square icon="edit" />
+          <Button square icon="delete" />
         </div>
-        <div className="sidebar-item-text">{`Sidebar-item-0${index}`}</div>
+        <div className="sidebar-item-text">{`Sidebar-item-0${index + 1}`}</div>
       </div>
     );
   });
@@ -233,15 +227,9 @@ function App() {
       >
         <CardHeader>
           <div className="buttons-group">
-            <div className="button">
-              <span className="icon">content_copy</span>
-            </div>
-            <div className="button">
-              <span className="icon">edit</span>
-            </div>
-            <div className="button">
-              <span className="icon">delete</span>
-            </div>
+            <Button square icon="content_copy" />
+            <Button square icon="edit" />
+            <Button square icon="delete" />
           </div>
           <PropertyItem
             name={`Card-name-0${index + 1}`}
@@ -289,7 +277,7 @@ function App() {
             <div
               className="button"
               onClick={() => {
-                changeVar("--body-bg-hue", -10);
+                changeVar("--bg-hue", -10);
               }}
             >
               Button 1
@@ -298,7 +286,7 @@ function App() {
             <div
               className="button"
               onClick={() => {
-                changeVar("--body-bg-hue", 10);
+                changeVar("--bg-hue", 10);
               }}
             >
               Button 3
@@ -403,7 +391,7 @@ function App() {
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
-                      property: "--body-bg-lightness",
+                      property: "--bg-lightness",
                       value: e.target.value,
                       unit: "%",
                     });
@@ -422,7 +410,7 @@ function App() {
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
-                      property: "--body-bg-saturation",
+                      property: "--bg-saturation",
                       value: e.target.value,
                       unit: "%",
                     });
@@ -441,7 +429,7 @@ function App() {
                   onChange={(e) => {
                     changeCssRule({
                       selector: `[data-theme="${theme}"]`,
-                      property: "--body-bg-hue",
+                      property: "--bg-hue",
                       value: e.target.value,
                     });
                   }}

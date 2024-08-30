@@ -1,10 +1,10 @@
 [data-theme="claymorphism"] {
-  --body-bg-hue: 267;
-  --body-bg-saturation: 63%;
-  --body-bg-lightness: 75%;
-  --body-color-hue: 208;
-  --body-color-saturation: 7%;
-  --body-color-lightness: 46%;
+  --bg-hue: 267;
+  --bg-saturation: 63%;
+  --bg-lightness: 75%;
+  --color-hue: 208;
+  --color-saturation: 7%;
+  --color-lightness: 46%;
   --base-bg-hue: 60;
   --base-bg-saturation: 75%;
   --base-bg-lightness: 75%;
@@ -83,9 +83,9 @@
   );
 
   --muted-color: hsl(
-    var(--body-color-hue),
-    var(--body-color-saturation),
-    calc(var(--body-color-lightness) - 10%)
+    var(--color-hue),
+    var(--color-saturation),
+    calc(var(--color-lightness) - 10%)
   ); */
 
   --outer-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur)

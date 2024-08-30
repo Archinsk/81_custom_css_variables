@@ -31,18 +31,28 @@
 }
 
 @mixin button-square {
-  &:not(.button-sm, .button-lg) {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
-  &.button-sm {
-    width: 1.9375rem;
-    height: 1.9375rem;
-  }
-  &.button-lg {
-    width: 3rem;
-    height: 3rem;
-  }
+  padding-left: calc(
+    var(--button-padding-y, var(--padding, 0.375em)) - var(
+        --button-border-width,
+        var(--border-width, 0rem)
+      )
+  );
+  padding-right: calc(
+    var(--button-padding-y, var(--padding, 0.375em)) - var(
+        --button-border-width,
+        var(--border-width, 0rem)
+      )
+  );
+  height: calc(
+    var(--button-font-size, var(--font-size, 1rem)) *
+      var(--button-line-height, var(--line-height, 1.5)) +
+      calc(
+        var(--button-padding-y, var(--padding, 0.375em)) - var(
+            --button-border-width,
+            var(--border-width, 0rem)
+          )
+      ) * 2
+  );
 }
 
 .button-block {
