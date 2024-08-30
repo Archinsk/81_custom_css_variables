@@ -6,6 +6,10 @@ import Icon from "./components/universal/Icon";
 import Offcanvas from "./components/universal/Offcanvas";
 import OffcanvasHeader from "./components/universal/OffcanvasHeader";
 import OffcanvasBody from "./components/universal/OffcanvasBody";
+import Card from "./components/universal/Card";
+import CardHeader from "./components/universal/CardHeader";
+import CardBody from "./components/universal/CardBody";
+import PropertyItem from "./components/PropertyItem";
 
 function App() {
   const [isRightSidebarShow, setRightSidebarShow] = useState(false);
@@ -182,6 +186,73 @@ function App() {
     document.styleSheets[styleSheetIndex].deleteRule(cssRuleIndex);
   }
 
+  const sidebarItems = [0, 1, 2, 3, 4, 5].map((item, index) => {
+    return (
+      <div
+        key={index}
+        className={`sidebar-item ${activeSidebarItemIndex === index && "active"}`}
+        onClick={() => {
+          setActiveSidebarItemIndex(index);
+        }}
+      >
+        <div className="buttons-group">
+          <div className="button">
+            <span className="icon">content_copy</span>
+          </div>
+          <div className="button">
+            <span className="icon">edit</span>
+          </div>
+          <div className="button">
+            <span className="icon">delete</span>
+          </div>
+        </div>
+        <div className="sidebar-item-text">{`Sidebar-item-0${index}`}</div>
+      </div>
+    );
+  });
+
+  const cardPropertiesItems = [0, 1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+    return (
+      <PropertyItem
+        key={index}
+        name={`Property-${index + 1}`}
+        value={`Value-${index + 1}`}
+      />
+    );
+  });
+
+  const cards = [0, 1, 2, 3, 4, 5].map((item, index) => {
+    return (
+      <Card
+        key={index}
+        custom
+        className={activeCardIndex === index ? "active" : ""}
+        onClick={() => {
+          setActiveCardIndex(index);
+        }}
+      >
+        <CardHeader>
+          <div className="buttons-group">
+            <div className="button">
+              <span className="icon">content_copy</span>
+            </div>
+            <div className="button">
+              <span className="icon">edit</span>
+            </div>
+            <div className="button">
+              <span className="icon">delete</span>
+            </div>
+          </div>
+          <PropertyItem
+            name={`Card-name-0${index + 1}`}
+            value={`Card-title-0${index + 1}`}
+          />
+        </CardHeader>
+        <CardBody>{cardPropertiesItems}</CardBody>
+      </Card>
+    );
+  });
+
   return (
     <div className="app">
       <div className="header">
@@ -233,84 +304,7 @@ function App() {
               Button 3
             </div>
           </div>
-          <div className="sidebar">
-            <div
-              className={`sidebar-item ${activeSidebarItemIndex === 0 && "active"}`}
-              onClick={() => {
-                setActiveSidebarItemIndex(0);
-              }}
-            >
-              <div className="buttons-group">
-                <div className="button">
-                  <span className="icon">content_copy</span>
-                </div>
-                <div className="button">
-                  <span className="icon">edit</span>
-                </div>
-                <div className="button">
-                  <span className="icon">delete</span>
-                </div>
-              </div>
-              <div className="sidebar-item-text">Sidebar-item-01</div>
-            </div>
-            <div
-              className={`sidebar-item ${activeSidebarItemIndex === 1 && "active"}`}
-              onClick={() => {
-                setActiveSidebarItemIndex(1);
-              }}
-            >
-              <div className="buttons-group">
-                <div className="button">
-                  <span className="icon">content_copy</span>
-                </div>
-                <div className="button">
-                  <span className="icon">edit</span>
-                </div>
-                <div className="button">
-                  <span className="icon">delete</span>
-                </div>
-              </div>
-              <div className="sidebar-item-text">Sidebar-item-02</div>
-            </div>
-            <div
-              className={`sidebar-item ${activeSidebarItemIndex === 2 && "active"}`}
-              onClick={() => {
-                setActiveSidebarItemIndex(2);
-              }}
-            >
-              <div className="buttons-group">
-                <div className="button">
-                  <span className="icon">content_copy</span>
-                </div>
-                <div className="button">
-                  <span className="icon">edit</span>
-                </div>
-                <div className="button">
-                  <span className="icon">delete</span>
-                </div>
-              </div>
-              <div className="sidebar-item-text">Sidebar-item-03</div>
-            </div>
-            <div
-              className={`sidebar-item ${activeSidebarItemIndex === 3 && "active"}`}
-              onClick={() => {
-                setActiveSidebarItemIndex(3);
-              }}
-            >
-              <div className="buttons-group">
-                <div className="button">
-                  <span className="icon">content_copy</span>
-                </div>
-                <div className="button">
-                  <span className="icon">edit</span>
-                </div>
-                <div className="button">
-                  <span className="icon">delete</span>
-                </div>
-              </div>
-              <div className="sidebar-item-text">Sidebar-item-04</div>
-            </div>
-          </div>
+          <div className="sidebar">{sidebarItems}</div>
         </div>
         <div className="card-list-container">
           <div className="buttons-group">
@@ -318,176 +312,7 @@ function App() {
             <div className="button">Button 5</div>
             <div className="button">Button 6</div>
           </div>
-          <div className="card-list">
-            <div
-              className={`card ${activeCardIndex === 0 && "active"}`}
-              onClick={() => {
-                setActiveCardIndex(0);
-              }}
-            >
-              <div className="card-header">
-                <div className="buttons-group">
-                  <div className="button">
-                    <span className="icon">content_copy</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">edit</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">delete</span>
-                  </div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Card-name-01</div>
-                  <div className="item-property-value">Card-title-01</div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="item-property">
-                  <div className="item-property-name">Property-1</div>
-                  <div className="item-property-value">Value-1</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-2</div>
-                  <div className="item-property-value">Value-2</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-3</div>
-                  <div className="item-property-value">Value-3</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-4</div>
-                  <div className="item-property-value">Value-4</div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`card ${activeCardIndex === 1 && "active"}`}
-              onClick={() => {
-                setActiveCardIndex(1);
-              }}
-            >
-              <div className="card-header">
-                <div className="buttons-group">
-                  <div className="button">
-                    <span className="icon">content_copy</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">edit</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">delete</span>
-                  </div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Card-name-02</div>
-                  <div className="item-property-value">Card-title-02</div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="item-property">
-                  <div className="item-property-name">Property-1</div>
-                  <div className="item-property-value">Value-1</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-2</div>
-                  <div className="item-property-value">Value-2</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-3</div>
-                  <div className="item-property-value">Value-3</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-4</div>
-                  <div className="item-property-value">Value-4</div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`card ${activeCardIndex === 2 && "active"}`}
-              onClick={() => {
-                setActiveCardIndex(2);
-              }}
-            >
-              <div className="card-header">
-                <div className="buttons-group">
-                  <div className="button">
-                    <span className="icon">content_copy</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">edit</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">delete</span>
-                  </div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Card-name-03</div>
-                  <div className="item-property-value">Card-title-03</div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="item-property">
-                  <div className="item-property-name">Property-1</div>
-                  <div className="item-property-value">Value-1</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-2</div>
-                  <div className="item-property-value">Value-2</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-3</div>
-                  <div className="item-property-value">Value-3</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-4</div>
-                  <div className="item-property-value">Value-4</div>
-                </div>
-              </div>
-            </div>
-            <div
-              className={`card ${activeCardIndex === 3 && "active"}`}
-              onClick={() => {
-                setActiveCardIndex(3);
-              }}
-            >
-              <div className="card-header">
-                <div className="buttons-group">
-                  <div className="button">
-                    <span className="icon">content_copy</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">edit</span>
-                  </div>
-                  <div className="button">
-                    <span className="icon">delete</span>
-                  </div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Card-name-04</div>
-                  <div className="item-property-value">Card-title-04</div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="item-property">
-                  <div className="item-property-name">Property-1</div>
-                  <div className="item-property-value">Value-1</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-2</div>
-                  <div className="item-property-value">Value-2</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-3</div>
-                  <div className="item-property-value">Value-3</div>
-                </div>
-                <div className="item-property">
-                  <div className="item-property-name">Property-4</div>
-                  <div className="item-property-value">Value-4</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div className="card-list">{cards}</div>
         </div>
 
         <Offcanvas custom show={isRightSidebarShow} position="right">
