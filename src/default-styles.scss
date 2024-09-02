@@ -42,6 +42,9 @@
     var(--color-lightness)
   );
 
+  --background-image: var(--background-image-url) center / cover;
+  --background: var(--background-image, var(--background-gradient, var(--bg)));
+
   --base-bg: hsla(
     var(--bg-hue),
     var(--bg-saturation),
@@ -92,7 +95,7 @@
 
 body {
   margin: 0;
-  background-color: var(--bg);
+  background: var(--background);
   color: var(--color);
   font-family: var(--font-family);
   font-size: var(--font-size);
