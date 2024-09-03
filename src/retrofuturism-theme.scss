@@ -17,10 +17,10 @@
   --muted-color-saturation: 0%;
   --muted-color-lightness: 75%;
   --muted-color-opacity: 1;
-  --button-bg-hue: 247;
-  --button-bg-saturation: 98%;
-  --button-bg-lightness: 75%;
-  --button-bg-opacity: 1;
+  --button-background-color-hue: 247;
+  --button-background-color-saturation: 98%;
+  --button-background-color-lightness: 75%;
+  --button-background-color-opacity: 1;
   --active-sidebar-item-bg-hue: 187;
   --active-sidebar-item-bg-saturation: 100%;
   --active-sidebar-item-bg-lightness: 95%;
@@ -58,11 +58,11 @@
     var(--muted-color-opacity)
   );
 
-  --button-bg: hsla(
-    var(--button-bg-hue),
-    var(--button-bg-saturation),
-    var(--button-bg-lightness),
-    var(--button-bg-opacity)
+  --button-background-color: hsla(
+    var(--button-background-color-hue),
+    var(--button-background-color-saturation),
+    var(--button-background-color-lightness),
+    var(--button-background-color-opacity)
   );
 
   --header-button-bg: hsl(318, 92%, 95%);
@@ -150,7 +150,7 @@
           // box-shadow: var(--intruded-shadow);
 
           .button {
-            background-color: var(--button-bg);
+            background-color: var(--button-background-color);
             color: var(--color);
           }
         }

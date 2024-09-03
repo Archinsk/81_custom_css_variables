@@ -1,5 +1,22 @@
 .button {
+  /* base */
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
   display: inline-block;
+  /* font */
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size, var(--font-size, 1rem));
+  line-height: var(--button-line-height, var(--line-height, 1.5));
+  font-weight: var(--button-font-weight);
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  /* colors */
+
+  /*
+  
   padding: calc(
       var(--button-padding-y, var(--padding, 0.375em)) - var(
           --button-border-width,
@@ -12,22 +29,20 @@
           var(--border-width, 0rem)
         )
     );
-  font-family: var(--button-font-family, var(--font-family));
-  font-size: var(--button-font-size, var(--font-size, 1rem));
-  font-weight: var(--button-font-weight, (--font-weight, 400));
-  line-height: var(--button-line-height, var(--line-height, 1.5));
-  background-color: var(--button-bg, var(--accent-color, transparent));
+
+  
+  
+  
+  background-color: var(
+    --button-background-color,
+    var(--accent-color, transparent)
+  );
   color: var(--button-color);
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+  
+  
   border: var(--button-border-width, var(--border-width, 0)) solid
     var(--button-border-color, var(--border-color));
-  border-radius: var(--button-border-radius, var(--border-radius));
+  border-radius: var(--button-border-radius, var(--border-radius));*/
 }
 
 @mixin button-square {

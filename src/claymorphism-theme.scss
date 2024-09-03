@@ -16,10 +16,10 @@
   --accent-color-saturation: 7%;
   --accent-color-lightness: 46%;
   --accent-color-opacity: 1;
-  --button-bg-hue: 0;
-  --button-bg-saturation: 0%;
-  --button-bg-lightness: 97%;
-  --button-bg-opacity: 1;
+  --button-background-color-hue: 0;
+  --button-background-color-saturation: 0%;
+  --button-background-color-lightness: 97%;
+  --button-background-color-opacity: 1;
 
   /*--danger-color-hue: 265;
   --danger-color-saturation: 59%;
@@ -65,11 +65,11 @@
     var(--base-bg-lightness)
   );
 
-  --button-bg: hsla(
-    var(--button-bg-hue),
-    var(--button-bg-saturation),
-    var(--button-bg-lightness),
-    var(--button-bg-opacity)
+  --button-background-color: hsla(
+    var(--button-background-color-hue),
+    var(--button-background-color-saturation),
+    var(--button-background-color-lightness),
+    var(--button-background-color-opacity)
   );
 
   --square-button-bg: hsl(
@@ -163,7 +163,7 @@
 
           .button {
             background-color: var(--square-button-bg);
-            color: var(--button-bg);
+            color: var(--button-background-color);
           }
         }
 
@@ -194,7 +194,7 @@
           margin: calc(var(--margin) * 2 / 3) calc(var(--margin) * 2 / 3) 0;
           padding-top: calc(var(--padding) * 2 / 3);
           padding-bottom: calc(var(--padding) * 2 / 3);
-          background-color: var(--button-bg);
+          background-color: var(--button-background-color);
           border-radius: calc(
             var(--border-radius) + var(--padding) - calc(var(--margin) * 2 / 3)
           );
@@ -222,7 +222,7 @@
 
           .button {
             background-color: var(--square-button-bg);
-            color: var(--button-bg);
+            color: var(--button-background-color);
           }
         }
 

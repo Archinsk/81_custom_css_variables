@@ -1,6 +1,10 @@
 // В этом файле желательно избегать глубокой вложенности, чтобы не присваивать свойствам высокий приоритет
 
 :root {
+  /* font */
+  --font-family: roboto;
+  --font-size: 1rem;
+
   --bg-hue: 0;
   --bg-saturation: 0%;
   --bg-lightness: 80%;
@@ -20,7 +24,6 @@
   --muted-color-lightness: calc(var(--color-lightness) + 5%);
   --muted-color-opacity: 1;
 
-  --font-family: roboto;
   --font-size: 1rem;
   --font-weight: normal;
   --line-height: 1.5;
@@ -29,8 +32,12 @@
   --padding: 1rem;
   --margin: 1rem;
 
-  /*--button-height: 2.25rem;*/
-  --button-padding-y: 0.375em;
+  /* Button */
+  /*--button-font-family: "proxima-nova";
+  --button-font-size: 0.75rem;
+  --button-line-height: 2;
+  --button-font-weight: bold;
+  --button-padding-y: 0.375em;*/
   --border-radius: 0;
   --sidebar-width: 25%;
 
@@ -66,7 +73,7 @@
     var(--accent-color-opacity)
   );
 
-  --button-bg: hsla(
+  --button-background-color: hsla(
     var(--bg-hue),
     var(--bg-saturation),
     calc(var(--bg-lightness) + 5%),
@@ -88,9 +95,11 @@
   );
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  transition: all 0.15s;
+  transition: all 1.15s;
 }
 
 body {
@@ -108,21 +117,9 @@ body {
   font-size: calc(var(--font-size) * 1.25);
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* 
-  padding: var(--button-padding-y) calc(var(--button-padding-y) * 2);*/
-  background-color: var(--button-bg);
-  height: var(--button-height);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-}
-
 .buttons-group {
-  display: flex;
-  gap: var(--gap);
+  /*display: flex;
+  gap: var(--gap);*/
 }
 
 .header {
@@ -170,6 +167,10 @@ body {
 .sidebar-item {
   background-color: var(--base-bg);
   padding: var(--padding);
+  min-height: calc(
+    var(--font-size) * var(--line-height) + var(--button-padding-y) * 2 +
+      var(--padding) * 2
+  );
 
   .buttons-group {
     float: right;
@@ -271,7 +272,7 @@ label {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: var(--button-bg);
+  background-color: var(--button-background-color);
   background-clip: padding-box;
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);

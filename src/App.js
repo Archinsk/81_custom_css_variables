@@ -296,9 +296,9 @@ function App() {
         </div>
         <div className="card-list-container">
           <div className="buttons-group">
-            <div className="button">Button 4</div>
-            <div className="button">Button 5</div>
-            <div className="button">Button 6</div>
+            <button className="button">Button 4</button>
+            <button className="button">Button 5</button>
+            <button className="button">Button 6</button>
           </div>
           <div className="card-list">{cards}</div>
         </div>

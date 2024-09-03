@@ -25,10 +25,10 @@
   --muted-color-saturation: 6%;
   --muted-color-lightness: 61%;
   --muted-color-opacity: 1;
-  --button-bg-hue: 72;
-  --button-bg-saturation: 4%;
-  --button-bg-lightness: 75%;
-  --button-bg-opacity: 1;
+  --button-background-color-hue: 72;
+  --button-background-color-saturation: 4%;
+  --button-background-color-lightness: 75%;
+  --button-background-color-opacity: 1;
   --active-bg-hue: 186;
   --active-bg-saturation: 100%;
   --active-bg-lightness: 58%;
@@ -72,11 +72,11 @@
     var(--muted-color-opacity)
   );
 
-  --button-bg: hsl(
-    var(--button-bg-hue),
-    var(--button-bg-saturation),
-    var(--button-bg-lightness),
-    var(--button-bg-opacity)
+  --button-background-color: hsl(
+    var(--button-background-color-hue),
+    var(--button-background-color-saturation),
+    var(--button-background-color-lightness),
+    var(--button-background-color-opacity)
   );
 
   --shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur)
