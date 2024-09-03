@@ -14,9 +14,12 @@
   text-align: center;
   vertical-align: middle;
   /* colors */
-
-  /*
-  
+  background-color: var(
+    --button-background-color,
+    var(--accent-color, transparent)
+  );
+  color: var(--button-color);
+  /* form */
   padding: calc(
       var(--button-padding-y, var(--padding, 0.375em)) - var(
           --button-border-width,
@@ -29,20 +32,11 @@
           var(--border-width, 0rem)
         )
     );
-
-  
-  
-  
-  background-color: var(
-    --button-background-color,
-    var(--accent-color, transparent)
-  );
-  color: var(--button-color);
-  
-  
+  border-radius: var(--button-border-radius, var(--border-radius));
+  /*
   border: var(--button-border-width, var(--border-width, 0)) solid
     var(--button-border-color, var(--border-color));
-  border-radius: var(--button-border-radius, var(--border-radius));*/
+  */
 }
 
 @mixin button-square {

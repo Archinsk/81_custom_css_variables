@@ -299,6 +299,9 @@ function App() {
             <button className="button">Button 4</button>
             <button className="button">Button 5</button>
             <button className="button">Button 6</button>
+            <Button>Button 7</Button>
+            <Button>Button 8</Button>
+            <Button>Button 9</Button>
           </div>
           <div className="card-list">{cards}</div>
         </div>

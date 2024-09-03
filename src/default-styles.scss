@@ -37,7 +37,28 @@
   --button-font-size: 0.75rem;
   --button-line-height: 2;
   --button-font-weight: bold;
-  --button-padding-y: 0.375em;*/
+  --button-background-color-hue: 120;
+  --button-background-color-saturation: 75%;
+  --button-background-color-lightness: 50%;
+  --button-background-color-opacity: 1;
+  --button-background-color: hsla(
+    var(--button-background-color-hue),
+    var(--button-background-color-saturation),
+    var(--button-background-color-lightness),
+    var(--button-background-color-opacity)
+  );
+  --button-color-hue: 240;
+  --button-color-saturation: 75%;
+  --button-color-lightness: 75%;
+  --button-color-opacity: 1;
+  --button-color: hsla(
+    var(--button-color-hue),
+    var(--button-color-saturation),
+    var(--button-color-lightness),
+    var(--button-color-opacity)
+  );*/
+  --button-padding-y: 0.375em;
+  /*--button-border-radius: 0.5rem;*/
   --border-radius: 0;
   --sidebar-width: 25%;
 
