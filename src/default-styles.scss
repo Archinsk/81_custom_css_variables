@@ -59,6 +59,10 @@
   );*/
   --button-padding-y: 0.375em;
   /*--button-border-radius: 0.5rem;*/
+  --button-border-width: 0rem;
+  /*--button-border-style: dashed;
+  --button-border-color: red;*/
+
   --border-radius: 0;
   --sidebar-width: 25%;
 
@@ -139,8 +143,8 @@ body {
 }
 
 .buttons-group {
-  /*display: flex;
-  gap: var(--gap);*/
+  display: flex;
+  gap: var(--gap);
 }
 
 .header {

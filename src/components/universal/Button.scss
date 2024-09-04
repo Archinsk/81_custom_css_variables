@@ -1,5 +1,15 @@
 .button {
   /* base */
+  --default-color-hue: 0;
+  --default-color-saturation: 0%;
+  --default-color-lightness: 50%;
+  --default-color-opacity: 1;
+  --default-color: hsla(
+    var(--default-color-hue),
+    var(--default-color-saturation),
+    var(--default-color-lightness),
+    var(--default-color-opacity)
+  );
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -23,44 +33,43 @@
   padding: calc(
       var(--button-padding-y, var(--padding, 0.375em)) - var(
           --button-border-width,
-          var(--border-width, 0rem)
+          var(--border-width, 0.0625rem)
         )
     )
     calc(
       (var(--button-padding-y, var(--padding, 0.375em)) * 2) - var(
           --button-border-width,
-          var(--border-width, 0rem)
+          var(--border-width, 0.0625rem)
         )
     );
   border-radius: var(--button-border-radius, var(--border-radius));
-  /*
-  border: var(--button-border-width, var(--border-width, 0)) solid
-    var(--button-border-color, var(--border-color));
-  */
+  border: var(--button-border-width, var(--border-width, 0.0625rem))
+    var(--button-border-style, var(--border-style, solid))
+    var(--button-border-color, var(--border-color, var(--default-color)));
 }
 
 @mixin button-square {
   padding-left: calc(
     var(--button-padding-y, var(--padding, 0.375em)) - var(
         --button-border-width,
-        var(--border-width, 0rem)
+        var(--border-width, 0.0625rem)
       )
   );
   padding-right: calc(
     var(--button-padding-y, var(--padding, 0.375em)) - var(
         --button-border-width,
-        var(--border-width, 0rem)
+        var(--border-width, 0.0625rem)
       )
   );
-  height: calc(
+  width: calc(
     var(--button-font-size, var(--font-size, 1rem)) *
       var(--button-line-height, var(--line-height, 1.5)) +
       calc(
         var(--button-padding-y, var(--padding, 0.375em)) - var(
             --button-border-width,
-            var(--border-width, 0rem)
+            var(--border-width, 0.0625rem)
           )
-      ) * 2
+      ) * 2 + var(--button-border-width, var(--border-width, 0.0625rem)) * 2
   );
 }
 

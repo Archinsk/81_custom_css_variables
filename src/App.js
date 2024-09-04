@@ -302,6 +302,7 @@ function App() {
             <Button>Button 7</Button>
             <Button>Button 8</Button>
             <Button>Button 9</Button>
+            <Button square>A</Button>
           </div>
           <div className="card-list">{cards}</div>
         </div>
