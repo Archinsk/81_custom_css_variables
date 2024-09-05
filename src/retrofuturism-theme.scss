@@ -138,6 +138,11 @@
       .sidebar-item {
         padding: calc(var(--padding) * 1 / 3) calc(var(--padding) * 1 / 3)
           calc(var(--padding) * 1 / 3) calc(var(--padding) * 2 / 3);
+        border-radius: calc(var(--border-radius) * 1.5);
+        min-height: calc(
+          var(--font-size) * var(--line-height) + var(--button-padding-y) * 2 +
+            var(--padding) * 1 / 3 * 2
+        );
 
         .buttons-group {
           gap: calc(var(--gap) * 0.5);
@@ -146,7 +151,6 @@
         &.active {
           background-color: var(--active-sidebar-item-bg);
           color: var(--active-sidebar-item-color);
-          border-radius: calc(var(--border-radius) * 1.5);
           // box-shadow: var(--intruded-shadow);
 
           .button {

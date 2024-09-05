@@ -123,6 +123,12 @@
           calc(var(--padding) * 0.5 - var(--border-width))
           calc(var(--padding) * 0.5 - var(--border-width))
           calc(var(--padding) - var(--border-width));
+        border: var(--border-width) solid transparent;
+        border-radius: var(--border-radius);
+        min-height: calc(
+          var(--font-size) * var(--line-height) + var(--button-padding-y) * 2 +
+            var(--padding) * 1 / 2 * 2
+        );
 
         .buttons-group {
           gap: calc(var(--gap) * 0.5);
@@ -135,7 +141,6 @@
         &.active {
           background-color: var(--active-bg);
           border: var(--border-width) solid var(--accent-color);
-          border-radius: var(--border-radius);
           box-shadow: var(--shadow-active);
 
           .button {
@@ -145,7 +150,6 @@
         }
 
         &:not(.active) {
-          --border-width: 0rem;
           background-color: transparent;
         }
       }

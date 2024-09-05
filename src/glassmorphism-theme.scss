@@ -90,11 +90,12 @@
     padding-bottom: calc(var(--margin) * 0.5);
 
     .sidebar-item {
+      margin-left: calc(var(--margin) * 0.5);
+      margin-right: calc(var(--margin) * 0.5);
+      border-radius: var(--border-radius);
+
       &.active {
         background-color: var(--active-glass-bg);
-        margin-left: calc(var(--margin) * 0.5);
-        margin-right: calc(var(--margin) * 0.5);
-        border-radius: var(--border-radius);
         box-shadow: var(--outer-shadow-sm);
 
         .sidebar-item-text {
@@ -104,7 +105,6 @@
 
       &:not(.active) {
         background-color: transparent;
-        padding: var(--padding) calc(var(--padding) * 1.5);
       }
     }
   }

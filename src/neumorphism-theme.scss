@@ -144,11 +144,13 @@
       box-shadow: var(--extruded-shadow);
 
       .sidebar-item {
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+        border-radius: var(--border-radius);
+
         &.active {
           background-color: var(--bg);
-          margin-left: var(--margin);
-          margin-right: var(--margin);
-          border-radius: var(--border-radius);
+
           box-shadow: var(--intruded-shadow);
 
           .sidebar-item-text {

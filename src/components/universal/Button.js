@@ -15,7 +15,7 @@ function Button({
   onClick,
 }) {
   let componentClass = "button";
-  if (size && ["sm", "lg"].includes(size)) {
+  if (size && ["small", "large"].includes(size)) {
     componentClass += ` button-${size}`;
   }
   if (block) {

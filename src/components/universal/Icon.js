@@ -1,13 +1,9 @@
-import React from "react";
 import "./Icon.scss";
 
-function Icon({ className, format = "font", type = "material", name }) {
-  let componentClass = "icon";
+function Icon({ className, name }) {
+  let componentClass = "icon material-icon";
   if (className) {
     componentClass += ` ${className}`;
-  }
-  if (format === "font" && type === "material") {
-    componentClass += " material-icon";
   }
 
   return <span className={componentClass}>{name}</span>;

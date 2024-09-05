@@ -246,24 +246,20 @@ function App() {
       <div className="header">
         <div className="header-text">Header</div>
         <div className="buttons-group">
-          <div className="button" onClick={() => updateTheme()}>
-            Default
-          </div>
-          <div className="button" onClick={() => updateTheme("neumorphism")}>
+          <Button onClick={() => updateTheme()}>Default</Button>
+          <Button onClick={() => updateTheme("neumorphism")}>
             Neumorphism
-          </div>
-          <div className="button" onClick={() => updateTheme("glassmorphism")}>
+          </Button>
+          <Button onClick={() => updateTheme("glassmorphism")}>
             Glassmorphism
-          </div>
-          <div className="button" onClick={() => updateTheme("claymorphism")}>
+          </Button>
+          <Button onClick={() => updateTheme("claymorphism")}>
             Claymorphism
-          </div>
-          <div className="button" onClick={() => updateTheme("retrofuturism")}>
+          </Button>
+          <Button onClick={() => updateTheme("retrofuturism")}>
             Retrofuturism
-          </div>
-          <div className="button" onClick={() => updateTheme("hi-tech")}>
-            Hi-tech
-          </div>
+          </Button>
+          <Button onClick={() => updateTheme("hi-tech")}>Hi-tech</Button>
           <Button
             square
             icon="settings"

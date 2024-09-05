@@ -148,17 +148,18 @@
       box-shadow: var(--extruded-shadow);
 
       .sidebar-item {
+        margin-left: var(--margin);
+        margin-right: var(--margin);
+        padding-top: calc(var(--padding) * 2 / 3);
+        padding-bottom: calc(var(--padding) * 2 / 3);
+        border-radius: var(--border-radius);
+
         .sidebar-item-text {
           font-weight: bold;
         }
 
         &.active {
           background-color: var(--accent-bg);
-          margin-left: var(--margin);
-          margin-right: var(--margin);
-          padding-top: calc(var(--padding) * 2 / 3);
-          padding-bottom: calc(var(--padding) * 2 / 3);
-          border-radius: var(--border-radius);
           box-shadow: var(--extruded-shadow);
 
           .button {
