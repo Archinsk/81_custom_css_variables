@@ -168,7 +168,7 @@
         border-radius: var(--border-radius);
 
         .card-header {
-          padding-bottom: calc(var(--padding) * 0.75);
+          padding-bottom: calc(var(--padding) * 0.75 + var(--border-width));
           border-top-left-radius: var(--border-radius);
           border-top-right-radius: var(--border-radius);
 
@@ -202,13 +202,13 @@
             position: relative;
 
             ::after {
-              position: absolute;
               content: "";
-              height: var(--border-width);
-              background-color: var(--color);
+              position: absolute;
               bottom: 0;
               left: var(--padding);
               right: var(--padding);
+              height: var(--border-width);
+              background-color: var(--color);
             }
           }
         }

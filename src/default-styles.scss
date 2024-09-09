@@ -230,6 +230,7 @@ body {
   background-color: var(--base-bg);
   border-radius: var(--border-radius);
   cursor: pointer;
+  max-width: calc(50% - var(--margin));
 
   &:not(.active) {
     .buttons-group {
