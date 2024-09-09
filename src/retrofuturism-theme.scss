@@ -41,7 +41,7 @@
   --padding: 1.5rem;
   --margin: 1.5rem;
   --border-radius: 0.25rem;
-  --card-header-divider-width: 0.25rem;
+  --neon-width: 0.25rem;
 
   --background-image-url: url("assets/images/backgrounds/retrofuturism-back.jpg");
 
@@ -103,7 +103,9 @@
   .header {
     padding-left: var(--padding);
     padding-right: var(--padding);
+    padding-bottom: calc(var(--padding) + var(--neon-width));
     color: var(--active-sidebar-item-bg);
+    position: relative;
 
     .buttons-group {
       gap: calc(var(--gap) * 1.5);
@@ -113,6 +115,17 @@
       background-color: var(--header-button-bg);
       color: var(--active-card-button-color);
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: var(--padding);
+      right: var(--padding);
+      height: var(--neon-width);
+      border-radius: calc(var(--neon-width) / 2);
+      background: white;
+    }
   }
 
   .main {
@@ -121,6 +134,9 @@
   }
 
   .sidebar-container {
+    position: relative;
+    padding-right: calc(var(--margin) + var(--neon-width));
+
     & > .buttons-group {
       gap: calc(var(--gap) * 1.5);
 
@@ -165,6 +181,17 @@
         }
       }
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: var(--padding);
+      bottom: var(--padding);
+      width: var(--neon-width);
+      border-radius: calc(var(--neon-width) / 2);
+      background: white;
+    }
   }
 
   .card-list-container {
@@ -180,20 +207,33 @@
       gap: calc(var(--gap) * 1.5);
 
       .card {
-        border-radius: calc(var(--border-radius) * 1.5);
+        border: var(--neon-width) solid white;
+        border-radius: calc(var(--border-radius) * 1.5 + var(--neon-width));
 
         .card-header {
-          padding-bottom: calc(
-            var(--padding) * 2 / 3 + var(--card-header-divider-width)
-          );
+          position: relative;
+          padding: calc(var(--padding) + var(--neon-width));
+          padding-bottom: calc(var(--padding) * 2 / 3 + var(--neon-width));
 
           .item-property-value {
             font-weight: bold;
           }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: var(--padding);
+            right: var(--padding);
+            height: var(--neon-width);
+            border-radius: calc(var(--neon-width) / 2);
+            background: white;
+          }
         }
 
         .card-body {
-          padding-top: calc(var(--padding) * 0.5);
+          padding: calc(var(--padding) + var(--neon-width));
+          padding-top: var(--padding);
         }
 
         &.active {

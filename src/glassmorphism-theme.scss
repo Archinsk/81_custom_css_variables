@@ -27,7 +27,8 @@
   --muted-color-opacity: 1;
 
   --border-radius: 1.125rem;
-  --card-header-divider-width: 0.0625rem;
+  --border-width: 0.0625rem;
+  --button-border-width: 0.0625rem;
 
   --shadow-offset: 0.625rem;
   --shadow-blur: 0.625rem;
@@ -84,6 +85,7 @@
   .button {
     background-color: var(--color);
     color: var(--accent-bg);
+    border-color: var(--color);
   }
 
   .header {
@@ -93,71 +95,104 @@
     }
   }
 
-  .sidebar {
-    gap: 0;
-    background-color: var(--glass-bg);
-    padding-top: calc(var(--margin) * 0.5);
-    padding-bottom: calc(var(--margin) * 0.5);
-
-    .sidebar-item {
-      margin-left: calc(var(--margin) * 0.5);
-      margin-right: calc(var(--margin) * 0.5);
-      border-radius: var(--border-radius);
-      position: relative;
-
-      &.active {
-        background-color: var(--active-glass-bg);
-        box-shadow: var(--outer-shadow-sm);
-
-        .sidebar-item-text {
-          font-weight: bold;
-        }
+  .sidebar-container {
+    & > .buttons-group {
+      .button {
+        border-color: var(--accent-bg);
       }
+    }
 
-      &:not(.active) {
-        background-color: transparent;
+    .sidebar {
+      gap: 0;
+      background-color: var(--glass-bg);
+      padding-top: calc(var(--margin) * 0.5);
+      padding-bottom: calc(var(--margin) * 0.5);
+      border: var(--border-width) solid var(--accent-color);
 
-        &:not(:first-child):not(.active + div)::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: var(--card-header-divider-width);
-          background: var(--card-divider-gradient);
+      .sidebar-item {
+        margin-left: calc(var(--margin) * 0.5 + var(--border-width));
+        margin-right: calc(var(--margin) * 0.5 + var(--border-width));
+        border-radius: var(--border-radius);
+        position: relative;
+        border-width: var(--border-width);
+        border-style: solid;
+
+        &.active {
+          background-color: var(--active-glass-bg);
+          box-shadow: var(--outer-shadow-sm);
+          border-color: var(--accent-color);
+
+          .sidebar-item-text {
+            font-weight: bold;
+          }
+
+          .button {
+            outline-offset: calc(var(--border-width) * 3);
+            outline: var(--border-width) solid var(--accent-color);
+          }
+        }
+
+        &:not(.active) {
+          background-color: transparent;
+          border-color: transparent;
+
+          &:not(:first-child):not(.active + div)::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--border-width);
+            background: var(--card-divider-gradient);
+          }
         }
       }
     }
   }
 
-  .card-list {
-    .card {
-      .card-header {
-        position: relative;
-        padding-bottom: calc(var(--padding) + var(--card-header-divider-width));
+  .card-list-container {
+    & > .buttons-group {
+      .button {
+        border-color: var(--accent-bg);
+      }
+    }
 
-        .item-property-value {
-          font-weight: bold;
+    .card-list {
+      .card {
+        border: var(--border-width) solid var(--accent-color);
+
+        .card-header {
+          position: relative;
+          padding-bottom: calc(var(--padding) + var(--border-width));
+
+          .item-property-value {
+            font-weight: bold;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: var(--padding);
+            right: var(--padding);
+            height: var(--border-width);
+            background: var(--card-divider-gradient);
+          }
         }
 
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: var(--padding);
-          right: var(--padding);
-          height: var(--card-header-divider-width);
-          background: var(--card-divider-gradient);
+        &.active {
+          background-color: var(--active-glass-bg);
+          box-shadow: var(--outer-shadow);
+
+          .button {
+            outline-offset: calc(var(--border-width) * 3);
+            outline: var(--border-width) solid var(--accent-color);
+          }
         }
-      }
 
-      &.active {
-        background-color: var(--active-glass-bg);
-        box-shadow: var(--outer-shadow);
-      }
-
-      &:not(.active) {
-        background-color: var(--glass-bg);
+        &:not(.active) {
+          background-color: var(--glass-bg);
+        }
       }
     }
   }
