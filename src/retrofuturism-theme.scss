@@ -72,10 +72,84 @@
         )
     );
 
+  --neon-active-color: hsla(
+    calc(var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)),
+    var(--neon-base-color-saturation),
+    var(--neon-base-color-lightness),
+    var(--neon-base-color-opacity)
+  );
+  --neon-active-contour-color: hsla(
+    calc(var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-contour-color-lightness-offset
+        )
+    ),
+    var(--neon-base-color-opacity)
+  );
+  --neon-active-shadow-color-hsl: calc(
+      var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)
+    ),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-shadow-color-lightness-offset
+        )
+    );
+
+  --neon-accent-color: hsla(
+    calc(var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)),
+    var(--neon-base-color-saturation),
+    var(--neon-base-color-lightness),
+    var(--neon-base-color-opacity)
+  );
+  --neon-accent-contour-color: hsla(
+    calc(var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-contour-color-lightness-offset
+        )
+    ),
+    var(--neon-base-color-opacity)
+  );
+  --neon-accent-shadow-color-hsl: calc(
+      var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)
+    ),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-shadow-color-lightness-offset
+        )
+    );
+
   --neon-base-outer-shadow: 0 0 0.5rem 0.125rem
       hsla(var(--neon-base-shadow-color-hsl), 1),
     0 0 1rem 0.25rem hsla(var(--neon-base-shadow-color-hsl), 0.5),
     0 0 2rem 0 hsla(var(--neon-base-shadow-color-hsl), 1);
+  --neon-base-inner-shadow: inset 0 0 0.5rem 0.125rem
+      hsla(var(--neon-base-shadow-color-hsl), 1),
+    inset 0 0 1rem 0.25rem hsla(var(--neon-base-shadow-color-hsl), 0.5),
+    inset 0 0 2rem 0 hsla(var(--neon-base-shadow-color-hsl), 1);
+
+  --neon-active-outer-shadow: 0 0 0.5rem 0.125rem
+      hsla(var(--neon-active-shadow-color-hsl), 1),
+    0 0 1rem 0.25rem hsla(var(--neon-active-shadow-color-hsl), 0.5),
+    0 0 2rem 0 hsla(var(--neon-active-shadow-color-hsl), 1);
+  --neon-active-inner-shadow: inset 0 0 0.5rem 0.125rem
+      hsla(var(--neon-active-shadow-color-hsl), 1),
+    inset 0 0 1rem 0.25rem hsla(var(--neon-active-shadow-color-hsl), 0.5),
+    inset 0 0 2rem 0 hsla(var(--neon-active-shadow-color-hsl), 1);
+
+  --neon-accent-outer-shadow: 0 0 0.5rem 0.125rem
+      hsla(var(--neon-accent-shadow-color-hsl), 1),
+    0 0 1rem 0.25rem hsla(var(--neon-accent-shadow-color-hsl), 0.5),
+    0 0 2rem 0 hsla(var(--neon-accent-shadow-color-hsl), 1);
+  --neon-accent-inner-shadow: inset 0 0 0.5rem 0.125rem
+      hsla(var(--neon-accent-shadow-color-hsl), 1),
+    inset 0 0 1rem 0.25rem hsla(var(--neon-accent-shadow-color-hsl), 0.5),
+    inset 0 0 2rem 0 hsla(var(--neon-accent-shadow-color-hsl), 1);
 
   --padding: 1.5rem;
   --margin: 1.5rem;
@@ -163,7 +237,10 @@
       right: var(--padding);
       height: var(--neon-width);
       border-radius: calc(var(--neon-width) / 2);
-      background: white;
+      background-color: var(--neon-accent-color);
+      box-shadow:
+        inset 0 0 0 var(--neon-contour-width) var(--neon-accent-contour-color),
+        var(--neon-accent-outer-shadow);
     }
   }
 
@@ -229,7 +306,10 @@
       bottom: var(--padding);
       width: var(--neon-width);
       border-radius: calc(var(--neon-width) / 2);
-      background: white;
+      background-color: var(--neon-active-color);
+      box-shadow:
+        inset 0 0 0 var(--neon-contour-width) var(--neon-active-contour-color),
+        var(--neon-active-outer-shadow);
     }
   }
 
@@ -251,7 +331,9 @@
         border-radius: calc(var(--border-radius) * 1.5 + var(--neon-width));
         box-shadow:
           inset 0 0 0 var(--neon-contour-width) var(--neon-base-contour-color),
-          0 0 0 var(--neon-contour-width) var(--neon-base-contour-color);
+          0 0 0 var(--neon-contour-width) var(--neon-base-contour-color),
+          var(--neon-base-outer-shadow),
+          var(--neon-base-inner-shadow);
 
         .card-header {
           position: relative;
@@ -285,11 +367,28 @@
 
         &.active {
           background-color: var(--accent-bg);
+          border: calc(var(--neon-width) - var(--neon-contour-width) * 2) solid
+            var(--neon-active-color);
+          box-shadow:
+            inset 0 0 0 var(--neon-contour-width)
+              var(--neon-active-contour-color),
+            0 0 0 var(--neon-contour-width) var(--neon-active-contour-color),
+            var(--neon-active-outer-shadow),
+            var(--neon-active-inner-shadow);
 
           .card-header {
             .button {
               background-color: var(--active-card-button-bg);
               color: var(--active-card-button-color);
+            }
+
+            &::after {
+              content: "";
+              background-color: var(--neon-active-color);
+              box-shadow:
+                inset 0 0 0 var(--neon-contour-width)
+                  var(--neon-active-contour-color),
+                var(--neon-active-outer-shadow);
             }
           }
 
