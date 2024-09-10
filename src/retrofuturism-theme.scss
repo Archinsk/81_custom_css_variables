@@ -38,6 +38,45 @@
   --active-card-button-color-lightness: 0%;
   --active-card-button-color-opacity: 1;
 
+  --neon-base-color-hue: 275;
+  --neon-base-color-saturation: 100%;
+  --neon-base-color-lightness: 95%;
+  --neon-base-color-opacity: 1;
+
+  --neon-contour-width: 0.0625rem;
+  --neon-contour-color-lightness-offset: 20%;
+  --neon-compliment-color-hue-offset: 50;
+  --neon-shadow-color-lightness-offset: 35%;
+
+  --neon-base-color: hsla(
+    var(--neon-base-color-hue),
+    var(--neon-base-color-saturation),
+    var(--neon-base-color-lightness),
+    var(--neon-base-color-opacity)
+  );
+  --neon-base-contour-color: hsla(
+    var(--neon-base-color-hue),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-contour-color-lightness-offset
+        )
+    ),
+    var(--neon-base-color-opacity)
+  );
+  --neon-base-shadow-color-hsl: var(--neon-base-color-hue),
+    var(--neon-base-color-saturation),
+    calc(
+      var(--neon-base-color-lightness) - var(
+          --neon-shadow-color-lightness-offset
+        )
+    );
+
+  --neon-base-outer-shadow: 0 0 0.5rem 0.125rem
+      hsla(var(--neon-base-shadow-color-hsl), 1),
+    0 0 1rem 0.25rem hsla(var(--neon-base-shadow-color-hsl), 0.5),
+    0 0 2rem 0 hsla(var(--neon-base-shadow-color-hsl), 1);
+
   --padding: 1.5rem;
   --margin: 1.5rem;
   --border-radius: 0.25rem;
@@ -207,8 +246,12 @@
       gap: calc(var(--gap) * 1.5);
 
       .card {
-        border: var(--neon-width) solid white;
+        border: calc(var(--neon-width) - var(--neon-contour-width) * 2) solid
+          var(--neon-base-color);
         border-radius: calc(var(--border-radius) * 1.5 + var(--neon-width));
+        box-shadow:
+          inset 0 0 0 var(--neon-contour-width) var(--neon-base-contour-color),
+          0 0 0 var(--neon-contour-width) var(--neon-base-contour-color);
 
         .card-header {
           position: relative;
@@ -227,7 +270,11 @@
             right: var(--padding);
             height: var(--neon-width);
             border-radius: calc(var(--neon-width) / 2);
-            background: white;
+            background-color: var(--neon-base-color);
+            box-shadow:
+              inset 0 0 0 var(--neon-contour-width)
+                var(--neon-base-contour-color),
+              var(--neon-base-outer-shadow);
           }
         }
 
