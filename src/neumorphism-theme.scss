@@ -182,6 +182,8 @@
       gap: calc(var(--gap) * 1.5);
 
       .card {
+        width: calc(50% - var(--gap) * 1.5 / 2);
+
         .card-header {
           padding-bottom: calc(var(--padding) * 0.25);
 

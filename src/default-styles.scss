@@ -74,7 +74,7 @@
     var(--color-lightness)
   );
 
-  --background-image: var(--background-image-url) center / cover;
+  --background-image: var(--background-image-url);
   --background: var(--background-image, var(--background-gradient, var(--bg)));
 
   --base-bg: hsla(
@@ -129,12 +129,15 @@
 
 body {
   margin: 0;
-  background: var(--background);
+  background:
+    center / cover,
+    var(--background);
   color: var(--color);
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
+  min-height: 100vh;
 }
 
 .buttons-group {
@@ -230,7 +233,7 @@ body {
   background-color: var(--base-bg);
   border-radius: var(--border-radius);
   cursor: pointer;
-  max-width: calc(50% - var(--margin));
+  width: calc(50% - var(--gap) / 2);
 
   &:not(.active) {
     .buttons-group {

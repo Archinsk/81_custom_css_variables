@@ -45,7 +45,8 @@
 
   --neon-contour-width: 0.0625rem;
   --neon-contour-color-lightness-offset: 20%;
-  --neon-compliment-color-hue-offset: 50;
+  --neon-active-color-hue-offset: 90;
+  --neon-accent-color-hue-offset: 40;
   --neon-shadow-color-lightness-offset: 35%;
 
   --neon-base-color: hsla(
@@ -73,13 +74,13 @@
     );
 
   --neon-active-color: hsla(
-    calc(var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)),
+    calc(var(--neon-base-color-hue) - var(--neon-active-color-hue-offset)),
     var(--neon-base-color-saturation),
     var(--neon-base-color-lightness),
     var(--neon-base-color-opacity)
   );
   --neon-active-contour-color: hsla(
-    calc(var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)),
+    calc(var(--neon-base-color-hue) - var(--neon-active-color-hue-offset)),
     var(--neon-base-color-saturation),
     calc(
       var(--neon-base-color-lightness) - var(
@@ -89,7 +90,7 @@
     var(--neon-base-color-opacity)
   );
   --neon-active-shadow-color-hsl: calc(
-      var(--neon-base-color-hue) - var(--neon-compliment-color-hue-offset)
+      var(--neon-base-color-hue) - var(--neon-active-color-hue-offset)
     ),
     var(--neon-base-color-saturation),
     calc(
@@ -99,13 +100,13 @@
     );
 
   --neon-accent-color: hsla(
-    calc(var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)),
+    calc(var(--neon-base-color-hue) + var(--neon-accent-color-hue-offset)),
     var(--neon-base-color-saturation),
     var(--neon-base-color-lightness),
     var(--neon-base-color-opacity)
   );
   --neon-accent-contour-color: hsla(
-    calc(var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)),
+    calc(var(--neon-base-color-hue) + var(--neon-accent-color-hue-offset)),
     var(--neon-base-color-saturation),
     calc(
       var(--neon-base-color-lightness) - var(
@@ -115,7 +116,7 @@
     var(--neon-base-color-opacity)
   );
   --neon-accent-shadow-color-hsl: calc(
-      var(--neon-base-color-hue) + var(--neon-compliment-color-hue-offset)
+      var(--neon-base-color-hue) + var(--neon-accent-color-hue-offset)
     ),
     var(--neon-base-color-saturation),
     calc(
@@ -227,6 +228,9 @@
     .button {
       background-color: var(--header-button-bg);
       color: var(--active-card-button-color);
+      box-shadow:
+        inset 0 0 0 var(--neon-contour-width) var(--neon-accent-contour-color),
+        var(--neon-accent-outer-shadow);
     }
 
     &::after {
@@ -258,6 +262,7 @@
 
       .button {
         background-color: transparent;
+        border: var(--neon-contour-width) solid var(--color);
       }
     }
 
@@ -284,7 +289,10 @@
         &.active {
           background-color: var(--active-sidebar-item-bg);
           color: var(--active-sidebar-item-color);
-          // box-shadow: var(--intruded-shadow);
+          box-shadow:
+            inset 0 0 0 var(--neon-contour-width)
+              var(--neon-active-contour-color),
+            var(--neon-active-outer-shadow);
 
           .button {
             background-color: var(--button-background-color);
@@ -319,6 +327,7 @@
 
       .button {
         background-color: transparent;
+        border: var(--neon-contour-width) solid var(--color);
       }
     }
 
@@ -326,6 +335,7 @@
       gap: calc(var(--gap) * 1.5);
 
       .card {
+        width: calc(50% - var(--gap) * 1.5 / 2);
         border: calc(var(--neon-width) - var(--neon-contour-width) * 2) solid
           var(--neon-base-color);
         border-radius: calc(var(--border-radius) * 1.5 + var(--neon-width));

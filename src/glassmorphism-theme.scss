@@ -17,10 +17,7 @@
   --active-glass-bg-saturation: 59%;
   --active-glass-bg-lightness: 75%;
   --active-glass-bg-opacity: 0.5;
-  --danger-color-hue: 265;
-  --danger-color-saturation: 59%;
-  --danger-color-lightness: 75%;
-  --danger-color-opacity: 0.5;
+
   --muted-color-hue: 0;
   --muted-color-saturation: 0%;
   --muted-color-lightness: 89%;
@@ -38,8 +35,24 @@
   --shadow-offset-sm: calc(var(--shadow-offset) * 0.5);
   --shadow-blur-sm: calc(var(--shadow-blur) * 0.5);
 
-  --background-image-url: url("assets/images/backgrounds/glassmorphism-back.jpg");
-
+  --bg-gradient-hue-offset: 60;
+  --bg-gradient-start-color: hsl(
+    calc(var(--accent-bg-hue) + var(--bg-gradient-hue-offset)),
+    var(--accent-bg-saturation),
+    var(--accent-bg-lightness)
+  );
+  --bg-gradient-end-color: hsl(
+    calc(var(--accent-bg-hue) - var(--bg-gradient-hue-offset)),
+    var(--accent-bg-saturation),
+    var(--accent-bg-lightness)
+  );
+  /*--background-gradient: linear-gradient(
+    to top right,
+    var(--bg-gradient-start-color),
+    var(--accent-bg),
+    var(--bg-gradient-end-color)
+  );*/
+  /*--background-image-url: url("assets/images/backgrounds/glassmorphism-back.jpg");*/
   --glass-bg: hsla(
     var(--glass-bg-hue),
     var(--glass-bg-saturation),
@@ -54,11 +67,10 @@
     var(--active-glass-bg-opacity)
   );
 
-  --danger-color: hsla(
-    var(--danger-color-hue),
-    var(--danger-color-saturation),
-    var(--danger-color-lightness),
-    var(--danger-color-opacity)
+  --danger-color: hsl(
+    350,
+    calc(var(--accent-bg-saturation) + 30%),
+    calc(var(--accent-bg-lightness) - 15%)
   );
 
   --muted-color: hsl(
@@ -129,6 +141,10 @@
           .button {
             outline-offset: calc(var(--border-width) * 3);
             outline: var(--border-width) solid var(--accent-color);
+
+            &:last-child {
+              color: var(--danger-color);
+            }
           }
         }
 
@@ -187,6 +203,10 @@
           .button {
             outline-offset: calc(var(--border-width) * 3);
             outline: var(--border-width) solid var(--accent-color);
+
+            &:last-child {
+              color: var(--danger-color);
+            }
           }
         }
 

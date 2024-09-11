@@ -78,14 +78,13 @@
     calc(var(--base-bg-lightness) - 40%)
   );
 
-  /* --danger-color: hsla(
-    var(--danger-color-hue),
-    var(--danger-color-saturation),
-    var(--danger-color-lightness),
-    var(--danger-color-opacity)
+  --danger-color: hsl(
+    345,
+    var(--base-bg-saturation),
+    calc(var(--base-bg-lightness) - 40%)
   );
 
-  --muted-color: hsl(
+  /*--muted-color: hsl(
     var(--color-hue),
     var(--color-saturation),
     calc(var(--color-lightness) - 10%)
@@ -165,6 +164,10 @@
           .button {
             background-color: var(--square-button-bg);
             color: var(--button-background-color);
+
+            &:last-child {
+              background-color: var(--danger-color);
+            }
           }
         }
 
@@ -224,6 +227,10 @@
           .button {
             background-color: var(--square-button-bg);
             color: var(--button-background-color);
+
+            &:last-child {
+              background-color: var(--danger-color);
+            }
           }
         }
 
