@@ -1,6 +1,6 @@
 [data-theme="claymorphism"] {
-  --bg-hue: 267;
-  --bg-saturation: 63%;
+  --bg-hue: 270;
+  --bg-saturation: 65%;
   --bg-lightness: 75%;
   --color-hue: 208;
   --color-saturation: 7%;
@@ -42,7 +42,19 @@
   --light-opacity: 100%;
   --shadow-opacity: 30%;
 
-  --background-image-url: url("assets/images/backgrounds/claymorphism-back.jpg");
+  --bg-gradient-end-color-saturation-offset: 10%;
+  --bg-gradient-end-color-lightness-offset: 10%;
+  --bg-gradient-end-color: hsl(
+    var(--bg-hue),
+    calc(var(--bg-saturation) + var(--bg-gradient-end-color-saturation-offset)),
+    calc(var(--bg-lightness) + var(--bg-gradient-end-color-lightness-offset))
+  );
+  --background-gradient: linear-gradient(
+    to bottom,
+    var(--bg),
+    var(--bg-gradient-end-color)
+  );
+  /*--background-image-url: url("assets/images/backgrounds/claymorphism-back.jpg");*/
 
   /* --shadow-offset-sm: calc(var(--shadow-offset) * 0.5);
   --shadow-blur-sm: calc(var(--shadow-blur) * 0.5); */

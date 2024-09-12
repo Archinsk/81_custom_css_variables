@@ -35,23 +35,38 @@
   --shadow-offset-sm: calc(var(--shadow-offset) * 0.5);
   --shadow-blur-sm: calc(var(--shadow-blur) * 0.5);
 
-  --bg-gradient-hue-offset: 60;
+  --bg-gradient-middle-color-saturation-offset: 40%;
+  --bg-gradient-middle-color-lightness-offset: 10%;
+  --bg-gradient-middle-color-saturation: calc(
+    var(--accent-bg-saturation) +
+      var(--bg-gradient-middle-color-saturation-offset)
+  );
+  --bg-gradient-middle-color-lightness: calc(
+    var(--accent-bg-lightness) +
+      var(--bg-gradient-middle-color-lightness-offset)
+  );
+  --bg-gradient-middle-color: hsl(
+    var(--accent-bg-hue),
+    var(--bg-gradient-middle-color-saturation),
+    var(--bg-gradient-middle-color-lightness)
+  );
+  --bg-gradient-hue-offset: 50;
   --bg-gradient-start-color: hsl(
     calc(var(--accent-bg-hue) + var(--bg-gradient-hue-offset)),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness)
+    var(--bg-gradient-middle-color-saturation),
+    var(--bg-gradient-middle-color-lightness)
   );
   --bg-gradient-end-color: hsl(
     calc(var(--accent-bg-hue) - var(--bg-gradient-hue-offset)),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness)
+    var(--bg-gradient-middle-color-saturation),
+    var(--bg-gradient-middle-color-lightness)
   );
-  /*--background-gradient: linear-gradient(
+  --background-gradient: linear-gradient(
     to top right,
     var(--bg-gradient-start-color),
     var(--accent-bg),
     var(--bg-gradient-end-color)
-  );*/
+  );
   /*--background-image-url: url("assets/images/backgrounds/glassmorphism-back.jpg");*/
   --glass-bg: hsla(
     var(--glass-bg-hue),

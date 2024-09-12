@@ -42,7 +42,22 @@
   --shadow-spread: 0.25rem;
   --shadow-opacity: 0.75;
 
-  --background-image-url: url("assets/images/backgrounds/hi-tech-back.jpg");
+  --bg-gradient-start-color-saturation-offset: 10%;
+  --bg-gradient-start-color-lightness-offset: 25%;
+  --bg-gradient-start-color: hsl(
+    var(--bg-hue),
+    calc(
+      var(--bg-saturation) - var(--bg-gradient-start-color-saturation-offset)
+    ),
+    calc(var(--bg-lightness) - var(--bg-gradient-start-color-lightness-offset))
+  );
+  --background-gradient: linear-gradient(
+    to right,
+    var(--bg-gradient-start-color),
+    var(--bg),
+    var(--bg-gradient-start-color)
+  );
+  /*--background-image-url: url("assets/images/backgrounds/hi-tech-back.jpg");*/
 
   --base-bg: hsla(
     var(--base-bg-hue),

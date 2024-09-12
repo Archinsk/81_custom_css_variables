@@ -1,7 +1,7 @@
 [data-theme="retrofuturism"] {
-  --bg-hue: 266;
-  --bg-saturation: 74%;
-  --bg-lightness: 26%;
+  --bg-hue: 265;
+  --bg-saturation: 80%;
+  --bg-lightness: 35%;
   --color-hue: 0;
   --color-saturation: 0%;
   --color-lightness: 100%;
@@ -157,7 +157,24 @@
   --border-radius: 0.25rem;
   --neon-width: 0.25rem;
 
-  --background-image-url: url("assets/images/backgrounds/retrofuturism-back.jpg");
+  --bg-gradient-hue-offset: 40;
+  --bg-gradient-start-color: hsl(
+    calc(var(--bg-hue) - var(--bg-gradient-hue-offset)),
+    var(--bg-saturation),
+    var(--bg-lightness)
+  );
+  --bg-gradient-end-color: hsl(
+    calc(var(--bg-hue) + var(--bg-gradient-hue-offset)),
+    var(--bg-saturation),
+    var(--bg-lightness)
+  );
+  --background-gradient: linear-gradient(
+    to right,
+    var(--bg-gradient-start-color),
+    var(--bg),
+    var(--bg-gradient-end-color)
+  );
+  /*--background-image-url: url("assets/images/backgrounds/retrofuturism-back.jpg");*/
 
   /* --danger-color: hsla(
     var(--danger-color-hue),
