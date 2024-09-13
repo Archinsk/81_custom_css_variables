@@ -129,9 +129,7 @@
 
 body {
   margin: 0;
-  background:
-    center / cover,
-    var(--background);
+  background: center / cover var(--background);
   color: var(--color);
   font-family: var(--font-family);
   font-size: var(--font-size);

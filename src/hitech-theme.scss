@@ -54,10 +54,11 @@
   --background-gradient: linear-gradient(
     to right,
     var(--bg-gradient-start-color),
-    var(--bg),
+    var(--bg) 25%,
+    var(--bg) 75%,
     var(--bg-gradient-start-color)
   );
-  /*--background-image-url: url("assets/images/backgrounds/hi-tech-back.jpg");*/
+  --background-image-url: url("assets/images/backgrounds/hi-tech-back.jpg");
 
   --base-bg: hsla(
     var(--base-bg-hue),
