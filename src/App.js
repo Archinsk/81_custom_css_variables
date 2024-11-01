@@ -10,12 +10,15 @@ import Card from "./components/universal/Card";
 import CardHeader from "./components/universal/CardHeader";
 import CardBody from "./components/universal/CardBody";
 import PropertyItem from "./components/PropertyItem";
+import Collapse from "./components/universal/Collapse";
 
 function App() {
   const [isRightSidebarShow, setRightSidebarShow] = useState(false);
   const [theme, setTheme] = useState(null);
   const [activeSidebarItemIndex, setActiveSidebarItemIndex] = useState(null);
   const [activeCardIndex, setActiveCardIndex] = useState(null);
+
+  const [collapseShow, setCollapseShow] = useState(false);
 
   function changeVar(customVar, increaseValue) {
     const value = getComputedStyle(document.documentElement).getPropertyValue(
@@ -301,6 +304,10 @@ function App() {
             <Button square>A</Button>
           </div>
           <div className="card-list">{cards}</div>
+          <Button onClick={() => setCollapseShow(!collapseShow)}>
+            Collapse Button
+          </Button>
+          <Collapse show={collapseShow}></Collapse>
         </div>
 
         <Offcanvas custom show={isRightSidebarShow} position="right">
